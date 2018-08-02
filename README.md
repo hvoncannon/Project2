@@ -65,4 +65,5 @@ This project will
     1. Run 'git add .' to add all your changes
     2. Run 'git commit -m "#issueNumber with description of what you did afterwards"'
     3. Push your changes 'git push origin branchName'
-    
+    * ![pushBranch](./readmeAssets/2.png)
+5. If you have any questions or are skeptical about something, ask Jonathan :D
