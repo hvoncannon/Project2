@@ -64,6 +64,7 @@ This project will
 4. When you're ready to commit follow these steps:
     1. Run 'git add .' to add all your changes
     2. Run 'git commit -m "#issueNumber with description of what you did afterwards"'
+        * This step is important, if you dont add your issue number then github won't recognize the commit and display the commit message on github
     3. Push your changes 'git push origin branchName'
     * ![pushBranch](./readmeAssets/2.png)
 5. If you have any questions or are skeptical about something, ask Jonathan :D
