@@ -14,7 +14,8 @@
 * 
 
 ### Project Description:
-This project will 
+This project will allow user login and users will be able to create posts and assign it a specific category.
+When you create a post, it will show up on the landing page of the website. Along with the landing page, we will have category pages that will list only the posts associated with the category. If you click into an author, it will show posts and comments made by the author. On each post, users can comment on the post and also upvote comments and posts per user.
 
 ### Database Visualization
 ![dbVisualization](./readmeAssets/dbVisualization.png)
