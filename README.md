@@ -16,6 +16,9 @@
 ### Project Description:
 This project will 
 
+### Database Visualization
+![dbVisualization](./readmeAssets/dbVisualization.png)
+
 ### Breakdown of Tasks for MVP
 #### Front End
 * Landing page layout
