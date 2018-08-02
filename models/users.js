@@ -5,8 +5,8 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Users.associate = function(models) {
-    Users.hasMany(models.Posts, {});
-    Users.hasMany(models.Comments, {});
+    Users.hasMany(models.Post, {});
+    Users.hasMany(models.Comment, {});
   };
   return Users;
 };
