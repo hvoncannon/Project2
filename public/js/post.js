@@ -37,13 +37,17 @@ $("#submit").on("click", function(event) {
       .trim(),
     category: $("#dropdown-menu").val()
   };
-  // Send the POST request.
-  $.ajax("/", {
-    type: "POST",
-    data: newPost
-  }).then(function(res) {
-    console.log(res);
-    // Reload the page to get the updated list
-    location.reload("/");
-  });
+  //   // Send the POST request.
+  //   $.ajax("/", {
+  //     type: "POST",
+  //     data: newPost
+  //   }).then(function(res) {
+  //     console.log(res);
+  //     // Reload the page to get the updated list
+  //     location.reload("/");
+  //   });
+  // });
+
+  $.post("/new/post", newPost);
+  console.log(newPost);
 });
