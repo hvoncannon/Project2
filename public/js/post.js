@@ -38,7 +38,7 @@ $("#submit").on("submit", function(event) {
     category: $("#dropdown-menu").val()
   };
   // Send the POST request.
-  $.ajax("/", {
+  $.ajax("/new/post", {
     type: "POST",
     data: newPost
   }).then(function(res) {

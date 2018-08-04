@@ -14,17 +14,17 @@
           <div class="row">
             <div class="col-12">
               <form class="clearfix mb-4" action="POST">
-
+                {{!-- INPUT FIELD FOR POST-AUTHOR --}}
                 <div class="form-group">
                   <label for="post-author"></label>
                   <input type="text" id="post-author" class="form-control" aria-describedby="post-author" placeholder="Your Name">
                 </div>
-
+                {{!-- INPUT FIELD FOR POST-TITLE --}}
                 <div class="form-group">
                   <label for="post-title"></label>
                   <input type="text" id="post-title" class="form-control" aria-describedby="post-title" placeholder="Title">
                 </div>
-              
+              {{!-- FANCY PANTS EDITOR --}}
               <div class="row">
                 <div class="col-10">
                   <fieldset>
@@ -35,8 +35,8 @@
                     <button type="button" class="btn btn-sm buttonMarkups" id="buttonHyperlink"><a>L</a></button>
                     <button type="button" class="btn btn-sm" id="buttonOrderedList">OL</button>
                     <button type="button" class="btn btn-sm" id="buttonUnorderedList">UL</button>
-                    {{!-- <button type="button" class="btn btn-sm dropdown-toggle" id="buttonFontSize" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Font</button> --}}
-                      {{!-- <div class="dropdown-menu" aria-labelledby="buttonFontSize">
+                    {{!-- <button type="button" class="btn btn-sm dropdown-toggle" id="buttonFontSize" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Font</button>
+                      <div class="dropdown-menu" aria-labelledby="buttonFontSize">
                         <option class="fontValues" value="1">1</option>
                         <option class="fontValues" value="2">2</option>
                         <option class="fontValues" value="3">3</option>
@@ -45,10 +45,10 @@
                       </div> --}}
                   </fieldset>
                 </div>
-
+                {{!-- CATEGORY DROP-DOWN --}}
                 <div class="col-2">
                   <div class="dropdown">
-                    <button type="button" id="buttonCategory" class="btn btn-primary dropdown-toggle float-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" action="GET" id="buttonCategory" class="btn btn-danger dropdown-toggle float-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Category
                     </button>
 
@@ -61,29 +61,29 @@
                   </div>
                 </div>
               </div>
-              
+                {{!-- INPUT FIELD FOR POST-DESCRIPTION --}}
                 <div class="form-group">
                   <label for="post-description"></label>
                   <div contenteditable="true" class="form-control" id="post-description" aria-describedby="post-description" data-text="Text (optional)"></div>
                 </div>
-
-                <button id="submit" type="submit" class="btn btn-primary float-right">Post</button>
+                {{!-- POST SUBMIT BUTTON --}}
+                <button id="submit" type="submit" class="btn btn-danger float-right">Post</button>
               </form>
             </div>
           </div>
         </div>
       </div>
-
+      {{!-- SIDEBAR --}}
       <div class="col-3">
         <a>r/Android</a> 
         <div class="container sidebar">
-            <div class="row">
-              <div class="col">
-                <a>Android news, reviews, tips, and discussions about rooting, tutorials, and apps. 
-                  Generic discussion about phones/tablets is allowed, but technical-support and carrier-related issues 
-                  should be asked in their respective subreddits!</a> 
-              </div>
+          <div class="row">
+            <div class="col">
+              <a>Android news, reviews, tips, and discussions about rooting, tutorials, and apps. 
+                Generic discussion about phones/tablets is allowed, but technical-support and carrier-related issues 
+                should be asked in their respective subreddits!</a> 
             </div>
+          </div>
         </div>
       </div>
     </div>
