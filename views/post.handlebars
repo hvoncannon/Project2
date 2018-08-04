@@ -1,0 +1,125 @@
+{{!-- USER SUBMITS A NEW POST --}}
+<div id="createPost">
+  <h2>{{title}}</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+          <h4>{{msg}}</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-9">
+        <div id="postContainer" class="container">
+          <div class="row">
+            <div class="col-12">
+              <form class="clearfix mb-4" action="POST">
+
+                <div class="form-group">
+                  <label for="post-author"></label>
+                  <input type="text" id="post-author" class="form-control" aria-describedby="post-author" placeholder="Your Name">
+                </div>
+
+                <div class="form-group">
+                  <label for="post-title"></label>
+                  <input type="text" id="post-title" class="form-control" aria-describedby="post-title" placeholder="Title">
+                </div>
+              
+              <div class="row">
+                <div class="col-10">
+                  <fieldset>
+                    <button type="button" class="btn btn-sm buttonMarkups" id="buttonBold"><b>B</b></button>
+                    <button type="button" class="btn btn-sm buttonMarkups" id="buttonItalic"><i>i</i></button>
+                    <button type="button" class="btn btn-sm buttonMarkups" id="buttonUnderline"><u>U</u></button>
+                    <button type="button" class="btn btn-sm buttonMarkups" id="buttonStrike"><s>S</s></button>
+                    <button type="button" class="btn btn-sm buttonMarkups" id="buttonHyperlink"><a>L</a></button>
+                    <button type="button" class="btn btn-sm" id="buttonOrderedList">OL</button>
+                    <button type="button" class="btn btn-sm" id="buttonUnorderedList">UL</button>
+                    {{!-- <button type="button" class="btn btn-sm dropdown-toggle" id="buttonFontSize" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Font</button> --}}
+                      {{!-- <div class="dropdown-menu" aria-labelledby="buttonFontSize">
+                        <option class="fontValues" value="1">1</option>
+                        <option class="fontValues" value="2">2</option>
+                        <option class="fontValues" value="3">3</option>
+                        <option class="fontValues" value="4">4</option>
+                        <option class="fontValues" value="5">5</option>
+                      </div> --}}
+                  </fieldset>
+                </div>
+
+                <div class="col-2">
+                  <div class="dropdown">
+                    <button type="button" id="buttonCategory" class="btn btn-primary dropdown-toggle float-right" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Category
+                    </button>
+
+                    <div class="dropdown-menu" aria-labelledby="buttonCategory">
+                      <option class="dropdown-item" value="Sports">Sports</option>
+                      <option class="dropdown-item" value="Pets">Pets</option>
+                      <option class="dropdown-item" value="Food">Food</option>
+                      <option class="dropdown-item" value="Autos">Autos</option>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+                <div class="form-group">
+                  <label for="post-description"></label>
+                  <div contenteditable="true" class="form-control" id="post-description" aria-describedby="post-description" data-text="Text (optional)"></div>
+                </div>
+
+                <button id="submit" type="submit" class="btn btn-primary float-right">Post</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <a>r/Android</a> 
+        <div class="container sidebar">
+            <div class="row">
+              <div class="col">
+                <a>Android news, reviews, tips, and discussions about rooting, tutorials, and apps. 
+                  Generic discussion about phones/tablets is allowed, but technical-support and carrier-related issues 
+                  should be asked in their respective subreddits!</a> 
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #postContainer {
+    background-color: gray;
+    border-radius: 10px;
+  }
+  .sidebar {
+    border: solid;
+  }
+  .buttonMarkups {
+    width: 28px;
+  }
+  #buttonOrderedList, #buttonUnorderedList {
+    width: 35px;
+  }
+  body {
+    background-color: black;
+    color: white;
+  }
+  #post-description { 
+    border-radius: 5px; 
+    height: 100px;
+  }
+  #post-author{
+    margin-bottom: -24px;
+  }
+  fieldset {
+    margin-bottom: -20px;
+  }
+  [contentEditable=true]:empty:not(:focus):before {
+    content:attr(data-text);
+    color: gray;
+  }
+</style>
