@@ -242,6 +242,7 @@ body {
     background-color: #454545;
     padding: 15px;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .userPostTitle {
@@ -283,4 +284,95 @@ p {
     font-style: italic;
     font-size: 15px;
     color: #222222;
+}
+
+/*SideBar*/
+
+/*Links*/
+#sidebar {
+    background-color: #454545;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-right: 80px;
+}
+
+#sidebarHeader {
+    display: inline-block;
+    color: white;
+    letter-spacing: 3px;
+}
+
+#createPostButton {
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    font-size: 13px;
+    transition: all 1s;
+}
+
+#createPostButton:hover {
+    background-color: #9A9A9A;
+}
+
+#createAuthorButton {
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+    color: black;
+    font-size: 13px;
+    transition: all 1s;
+}
+
+#createAuthorButton:hover {
+    background-color: #9A9A9A;
+}
+
+#createCategoryButton {
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+    color: black;
+    font-size: 13px;
+    transition: all 1s;
+}
+
+#createCategoryButton:hover {
+    background-color: #9A9A9A;
+}
+
+
+/*Community Guidelines*/
+
+#communityGuidelines {
+    background-color: #454545;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-right: 80px;
+}
+
+#communityGuidelinesText {
+    color: #9A9A9A;
+    font-size: 12px;
+}
+
+#communityGuidelinesHeader {
+    display: inline-block;
+    color: white;
+    letter-spacing: 3px;
+    font-size: 13px;
 }
