@@ -25,9 +25,9 @@ $("#buttonUnorderedList").on("click", function() {
 //   document.execCommand("insertFontSize", false, grabFont);
 // });
 
-$("#submit").on("submit", function(event) {
+$("#submit").on("click", function(event) {
   event.preventDefault();
-
+  console.log("test");
   var newPost = {
     title: $("#post-title")
       .val()
