@@ -10,14 +10,13 @@ module.exports = function (app) {
   });
 
   app.get("/author", function (req, res) {
-    db.Example.findAll({}).then(function (dbExamples) {
       res.render("author", {
         title: "Post.it",
         msg: "Author Creation",
         examples: dbExamples
       });
     });
-  });
+
 
   app.get("/category", function (req, res) {
     res.render("category", {
