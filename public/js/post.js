@@ -25,9 +25,9 @@ $("#buttonUnorderedList").on("click", function() {
 //   document.execCommand("insertFontSize", false, grabFont);
 // });
 
-$("#submit").on("submit", function(event) {
+$("#submit").on("click", function(event) {
   event.preventDefault();
-
+  console.log("test");
   var newPost = {
     title: $("#post-title")
       .val()
@@ -37,13 +37,17 @@ $("#submit").on("submit", function(event) {
       .trim(),
     category: $("#dropdown-menu").val()
   };
-  // Send the POST request.
-  $.ajax("/", {
-    type: "POST",
-    data: newPost
-  }).then(function(res) {
-    console.log(res);
-    // Reload the page to get the updated list
-    location.reload("/");
-  });
+  //   // Send the POST request.
+  //   $.ajax("/", {
+  //     type: "POST",
+  //     data: newPost
+  //   }).then(function(res) {
+  //     console.log(res);
+  //     // Reload the page to get the updated list
+  //     location.reload("/");
+  //   });
+  // });
+
+  $.post("/new/post", newPost);
+  console.log(newPost);
 });
