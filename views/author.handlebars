@@ -3,40 +3,47 @@
     background-color: gray;
     border-radius: 10px;
   }
+
   .sidebar {
     border: solid;
   }
+
   .btn-sm {
     width: 28px;
   }
+
   body {
     background-color: black;
     color: white;
   }
-  #post-description { 
-    border-radius: 5px; 
+
+  #post-description {
+    border-radius: 5px;
   }
-  #post-author{
+
+  #username {
     margin-bottom: -24px;
   }
+
   fieldset {
     margin-bottom: -20px;
   }
+
   .dropdownButton {
     margin-left: -3px;
   }
 </style>
 
-  {{!-- USER SUBMITS A NEW POST --}}
+{{!-- USER SUBMITS A NEW POST --}}
 <div id="createPost">
   <h2>{{title}}</h2>
   <div class="container">
     <div class="row">
       <div class="col-4">
-          <h4>{{msg}}</h4>
+        <h4>{{msg}}</h4>
       </div>
     </div>
-
+{{username}}
     <div class="row">
       <div class="col-9">
         <div id="postContainer" class="container">
@@ -45,36 +52,73 @@
               <form class="clearfix mb-4" action="POST">
 
                 <div class="form-group">
-                  <label for="post-author"></label>
-                  <input type="text" id="post-author" class="form-control" aria-describedby="post-author" placeholder="Your name">
+                  <label for="username"></label>
+                  <input type="text" id="username" class="form-control" aria-describedby="username" placeholder="username">
                 </div>
-              
-              <div class="row">
-                <div class="col-10">
-                  <fieldset>
-                    <button type="button" class="btn btn-sm" id="buttonBold"><b>B</b></button>
-                    <button type="button" class="btn btn-sm" id="buttonItalic"><i>i</i></button>
-                  </fieldset>
-                </div>
-              </div>
 
-                <button id="submit" type="submit" class="btn btn-primary float-right">Post</button>
+                <div class="form-group">
+                  <label for="password"></label>
+                  <input type="text" id="password" class="form-control" aria-describedby="password" placeholder="password">
+                </div>
+
+                <div class="row">
+                  <div class="col-10">
+                    <fieldset>
+                      <button type="button" class="btn btn-sm" id="buttonBold">
+                        <b>B</b>
+                      </button>
+                      <button type="button" class="btn btn-sm" id="buttonItalic">
+                        <i>i</i>
+                      </button>
+                    </fieldset>
+                  </div>
+                </div>
+
+                <button id="submit" type="submit" class="btn btn-primary float-right">Submit</button>
               </form>
+
+              <form class="clearfix mb-4" action="POST">
+
+                <div class="form-group">
+                  <label for="username"></label>
+                  <input type="text" id="usernameLogin" class="form-control" aria-describedby="username" placeholder="usernameLogin">
+                </div>
+
+                <div class="form-group">
+                  <label for="password"></label>
+                  <input type="text" id="passwordLogin" class="form-control" aria-describedby="password" placeholder="password">
+                </div>
+
+                <div class="row">
+                  <div class="col-10">
+                    <fieldset>
+                      <button type="button" class="btn btn-sm" id="buttonBold">
+                        <b>B</b>
+                      </button>
+                      <button type="button" class="btn btn-sm" id="buttonItalic">
+                        <i>i</i>
+                      </button>
+                    </fieldset>
+                  </div>
+                </div>
+
+                <button id="submitLogin" type="submit" class="btn btn-primary float-right">Submit</button>
+              </form>
+              <a href="/logout">Logout</a>
             </div>
           </div>
         </div>
       </div>
 
       <div class="col-3">
-        <a>r/Android</a> 
+        <a>r/Android</a>
         <div class="container sidebar">
-            <div class="row">
-              <div class="col">
-                <a>Android news, reviews, tips, and discussions about rooting, tutorials, and apps. 
-                  Generic discussion about phones/tablets is allowed, but technical-support and carrier-related issues 
-                  should be asked in their respective subreddits!</a> 
-              </div>
+          <div class="row">
+            <div class="col">
+              <a>Android news, reviews, tips, and discussions about rooting, tutorials, and apps. Generic discussion about phones/tablets
+                is allowed, but technical-support and carrier-related issues should be asked in their respective subreddits!</a>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -87,28 +131,43 @@
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=pdc36rqic3ufhdd3tpjwu40dx8wizyfz5kuc4mom7dei2x3s"></script>
 <script>
 
-  $("#buttonBold").on("click", function() {
+  $("#buttonBold").on("click", function () {
     // ADD FUNCTION FOR BOLD
   })
 
-  $("#submit").on("submit", function(event) {
+  $("#submit").on("click", function (event) {
     event.preventDefault();
-
-    var newPost = {
-      title: $("#post-title").val().trim(),
-      description: $("#post-description").val().trim(),
-      category: $("#dropdown-menu").val()
+    var newUser = {
+      username: $("#username").val(),
+      password: $("#password").val().trim(),
     };
 
     // Send the POST request.
-    $.ajax("/", {
+    $.ajax("/signup", {
       type: "POST",
-      data: newPost
-    }).then(function(res) {
-        console.log(res);
-        // Reload the page to get the updated list
-        location.reload("/");
-      }
+      data: newUser
+    }).then(function (res) {
+      console.log(test);
+      console.log(newUser);
+    }
+    );
+  });
+
+    $("#submitLogin").on("click", function (event) {
+    event.preventDefault();
+    var newUser = {
+      username: $("#usernameLogin").val(),
+      password: $("#passwordLogin").val().trim(),
+    };
+
+    // Send the POST request.
+    $.ajax("/signin", {
+      type: "POST",
+      data: newUser
+    }).then(function (res) {
+      console.log(test);
+      console.log(newUser);
+    }
     );
   });
 
