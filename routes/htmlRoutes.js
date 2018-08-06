@@ -3,11 +3,24 @@ var db = require("../models");
 module.exports = function (app) {
   // Load Post Page
   app.get("/post", function (req, res) {
+    //empty array to place category objects in to display in dropdown when creating post
+    var cats = [];
+    //db call to get categories
+    db.Categories.findAll({}).then(function (dbCategories) {
+      //looping through them to put them in the array
+      for (var i = 0; i < dbCategories.length; i++) {
+        cats.push(dbCategories[i].dataValues);
+      }
+    });
+    //checks if the user is logged in and renders the form if they are
     if (req.isAuthenticated()) {
       res.render("post", {
         title: "Post.it",
         msg: "Post Creation",
+        username: req.user.username,
+        categories: cats
       });
+      console.log(req.user.id);
     } else {
       res.send("You need to be logged in");
     }
@@ -26,7 +39,6 @@ module.exports = function (app) {
         msg: "Author Creation",
       });
     }
-    console.log(req.user);
   });
 
 

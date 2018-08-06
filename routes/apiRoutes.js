@@ -16,10 +16,20 @@ module.exports = function(app) {
   });
 
   app.post("/new/post", function(req, res) {
-    console.log(req.body.title);
+    console.log(req.body);
     db.Post.create({
       title: req.body.title,
-      content: req.body.description
+      content: req.body.text,
+      CategoryId: req.body.category,
+      upvotes: 0,
+      downvotes: 0,
+      UserId: req.user.id
+    });
+  });
+
+  app.post("/new/category", function(req, res) {
+    db.Categories.create({
+      name: req.body.categoryName
     });
   });
 
