@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="/images/PostItLogo.png">
   <!--Stylesheets-->
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  {{!-- Bootstrap CDN --}}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 
   <!--Javascript / jQuery-->
@@ -31,49 +32,89 @@
 </head>
 
 <body>
-
   <div class="container-fluid" id="nav">
     <div class="row">
-      <div class="col-sm-12">
-        <span>
-          <a href="./">
-            <img id="logo" src="/images/PostItLogoWhite.png">
-          </a>
-          <div id="carouselNav" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img id="slogan" class="d-block w-100" src="/images/post.png" alt="POST">
-              </div>
-              <div class="carousel-item">
-                <img id="slogan" class="d-block w-100" src="/images/comment.png" alt="COMMENT">
-              </div>
-              <div class="carousel-item">
-                <img id="slogan" class="d-block w-100" src="/images/vote.png" alt="VOTE">
-              </div>
-            </div>
-          </div>
-        </span>
-        <span id="navbuttons">
-          <a class="navlink" href="./">
-            <i class="fas fa-home"></i>
-          </a>
-          <div id="searchWrapper">
-            <input type="text" placeholder="Search" id="searchBar">
-            <button id="searchButton">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </span>
-      </div>
+        <div class="col-sm-12">
+            <span>
+                <a href="/">
+                    <img id="logo" src="/images/PostItLogoWhite.png">
+                </a>
+                <div id="carouselNav" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img id="slogan" class="d-block w-100" src="/images/post.png" alt="POST">
+                        </div>
+                        <div class="carousel-item">
+                            <img id="slogan" class="d-block w-100" src="images/comment.png" alt="COMMENT">
+                        </div>
+                        <div class="carousel-item">
+                            <img id="slogan" class="d-block w-100" src="/images/vote.png" alt="VOTE">
+                        </div>
+                    </div>
+                </div>
+            </span>
+            
+            <span id="navbuttons">
+              <h5 id="navBarUsername" class="segoeFont">Logged in as <a style="color: red;">--></a> {{username}} <a style="color: red;"> <-- </a></h5>
+
+                <a class="navlink" href="/">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div id="searchWrapper">
+                    <input type="text" placeholder="Search" id="searchBar">
+                    <button id="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </span>
+        </div>
     </div>
+</div>
+
+<div id="emptySpace"></div>
+
+<div class="row justify-content-center">
+  <div class="col-md-9">
+    {{{body}}}
   </div>
+    <!--SIDE BAR-->
+  <div class="col-md-3">
+      <div id="sidebar">
+          <h3 id="sidebarHeader">Start Here</h3>
+          <hr id="postLineBreak">
+          <div class="col-md-12">
+              <span>
+                  <a href="">
+                      <button id="createAuthorButton">Create an Author</button>
+                  </a>
+              </span>
+              <span>
+                  <a href="">
+                      <button id="createCategoryButton">Create a Category</button>
+                  </a>
+              </span>
+              <span>
+                  <a href="">
+                      <button id="createPostButton">Create a Post</button>
+                  </a>
+              </span>
+          </div>
+      </div>
 
-  <div id="emptySpace"></div>
-
-
-  {{{body}}}
+      <div id="communityGuidelines">
+          <h3 id="communityGuidelinesHeader">Community Guidelines</h3>
+          <hr id="postLineBreak">
+          <div class="col-md-12">
+              <p id="communityGuidelinesText">
+                  Post It is a platform for users to discuss, share, and post about a variety of topics in an open environment. Please refrain
+                  form posting any NSFW content. Be respectful, responsible, and mindful of your interactions.
+              </p>
+          </div>
+      </div>
+  </div>
+</div>
+  
   <script src="/js/post.js"></script>
   <script src="/js/category.js"></script>
 </body>
-
 </html>
