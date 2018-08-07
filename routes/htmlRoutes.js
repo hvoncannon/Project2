@@ -1,6 +1,15 @@
 var db = require("../models");
 
 module.exports = function (app) {
+  app.get("/", function(req, res) {
+    var postsArr = [];
+    db.Post.findAll({}).then(function (dbPost) {
+      for(var i = 0; i < dbPost.length; i++) {
+        postsArr.push(dbPost[i].dataValues);
+      }
+    });
+    res.render("index", {posts: postsArr});
+  });
   // Load Post Page
   app.get("/post", function (req, res) {
     //empty array to place category objects in to display in dropdown when creating post
