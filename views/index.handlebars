@@ -8,7 +8,7 @@
             <img class="userPostImage" src="../public/images/userPlaceholder.jpg">
         </div>
         <div class="row justify-content-center">
-            <h6 class="userPostName">{{UserId}}</h6>
+            <h6 class="userPostName">{{this.UserId}}</h6>
         </div>
         <div class="row justify-content-center">
             <span>
@@ -29,8 +29,8 @@
 
             <!--Heading: Title / date posted-->
             <span class="userPostHeading">
-                <h3 class="userPostTitle">{{title}}</h3> -
-                <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
+                <h3 class="userPostTitle">{{this.title}}</h3> -
+                <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.CategoryId}}</h4>
             </span>
             <hr id="postLineBreak">
 
@@ -39,7 +39,7 @@
                 target="_blank">
                 <div class="userPostTextBody">
                     <p>
-                        {{this.post}}
+                        {{this.content}}
                     </p>
                 </div>
             </a>

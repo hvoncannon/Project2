@@ -5,10 +5,11 @@ module.exports = function (app) {
     var postsArr = [];
     db.Post.findAll({}).then(function (dbPost) {
       for(var i = 0; i < dbPost.length; i++) {
+        console.log(dbPost[i].dataValues.UserId);
         postsArr.push(dbPost[i].dataValues);
       }
+      res.render("index", {posts: postsArr});
     });
-    res.render("index", {posts: postsArr});
   });
   // Load Post Page
   app.get("/post", function (req, res) {
@@ -20,19 +21,20 @@ module.exports = function (app) {
       for (var i = 0; i < dbCategories.length; i++) {
         cats.push(dbCategories[i].dataValues);
       }
+      if (req.isAuthenticated()) {
+        res.render("post", {
+          title: "Post.it",
+          msg: "Post Creation",
+          username: req.user.username,
+          categories: cats
+        });
+        console.log(req.user.id);
+      } else {
+        res.send("You need to be logged in");
+      }
     });
     //checks if the user is logged in and renders the form if they are
-    if (req.isAuthenticated()) {
-      res.render("post", {
-        title: "Post.it",
-        msg: "Post Creation",
-        username: req.user.username,
-        categories: cats
-      });
-      console.log(req.user.id);
-    } else {
-      res.send("You need to be logged in");
-    }
+    
   });
 
   app.get("/author", function (req, res) {
