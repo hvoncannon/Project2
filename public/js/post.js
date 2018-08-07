@@ -1,3 +1,4 @@
+// Fancy Pants Editor Buttons - Bold, Italic, Underline, Strikethrough, Hyperlink, Ordered list, Unordered list
 $("#buttonBold").on("click", function() {
   document.execCommand("bold", false, null);
 });

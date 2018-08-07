@@ -3,22 +3,16 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/post", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("post", {
-        title: "Post.it",
-        msg: "Post Creation",
-        examples: dbExamples
-      });
+    res.render("post", {
+      title: "Post.it",
+      msg: "Post Creation",
     });
   });
 
   app.get("/author", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("author", {
-        title: "Post.it",
-        msg: "Author Creation",
-        examples: dbExamples
-      });
+    res.render("author", {
+      title: "Post.it",
+      msg: "Author Creation",
     });
   });
 
