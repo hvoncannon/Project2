@@ -51,6 +51,10 @@ module.exports = function (app) {
       });
     }
   });
+  
+  app.get("/category", function (req, res) {
+    res.render("category");
+  });
 
   app.get("/:id", function (req, res) {
     db.Post.findOne({
@@ -61,11 +65,7 @@ module.exports = function (app) {
     
   });
 
-  app.get("/category", function (req, res) {
-    res.render("category", {
-      msg: "Post a new category!"
-    });
-  });
+
 
 
   app.get("/success", function (req, res) {
