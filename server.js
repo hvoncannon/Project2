@@ -6,8 +6,6 @@ var passport = require("passport");
 var db = require("./models");
 var session = require("express-session");
 var app = express();
-var flash = require("connect-flash");
-var cookieParser = ("cookie-parser");
 var PORT = process.env.PORT || 3000;
 
 // Middleware
