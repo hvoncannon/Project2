@@ -1,105 +1,250 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-
-    <title>Marvie Solis</title>
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <!--favicon-->
-    <link rel="icon" type="image/png" href="./assets/images/miniLogo.png">
-
-    <!--Bootstrap CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-        crossorigin="anonymous">
-
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="./style.css">
-    <link rel="stylesheet" type="text/css" href="./mobile-style.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-
-
-    <!--Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-    <!--FontAwesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-        crossorigin="anonymous">
-
-
-</head>
-
-<body>
-
-        <div class="container-fluid" id="nav">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <span>
-                            <a href="./index.html">
-                                <img id="logo" src="../public/images/PostItLogoWhite.png">
-                            </a>
-                            <div id="carouselNav" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img id="slogan" class="d-block w-100" src="../public/images/post.png" alt="POST">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img id="slogan" class="d-block w-100" src="../public/images/comment.png" alt="COMMENT">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img id="slogan" class="d-block w-100" src="../public/images/vote.png" alt="VOTE">
-                                    </div>
-                                </div>
-                            </div>
-                        </span>
-                        <span id="navbuttons">
-                            <a class="navlink" href="./index.html">
-                                <i class="fas fa-home"></i>
-                            </a>
-                            <div id="searchWrapper">
-                                <input type="text" placeholder="Search" id="searchBar">
-                                <button id="searchButton">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div>
-                        </span>
-                        <span id="dropdownMenuButton">
-                            <div class="btn-group" id="drop">
-                                <button type="button" id="dropButton" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-bars"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="./index.html">Home</a>
-                                    <a class="dropdown-item" href="#portfolio">Portfolio</a>
-                                    <a class="dropdown-item" href="./assets/files/Marvie-Solis-Resume.pdf" target="_blank">Resume</a>
-                                    <a class="dropdown-item" href="#contact">Contact</a>
-                                </div>
-                            </div>
-                        </span>
+<div class="container-fluid" id="nav">
+    <div class="row">
+        <div class="col-sm-12">
+            <span>
+                <a href="./index.html">
+                    <img id="logo" src="../public/images/PostItLogoWhite.png">
+                </a>
+                <div id="carouselNav" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img id="slogan" class="d-block w-100" src="../public/images/post.png" alt="POST">
+                        </div>
+                        <div class="carousel-item">
+                            <img id="slogan" class="d-block w-100" src="../public/images/comment.png" alt="COMMENT">
+                        </div>
+                        <div class="carousel-item">
+                            <img id="slogan" class="d-block w-100" src="../public/images/vote.png" alt="VOTE">
+                        </div>
                     </div>
                 </div>
-            </div>
+            </span>
+            <span id="navbuttons">
+                <a class="navlink" href="./index.html">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div id="searchWrapper">
+                    <input type="text" placeholder="Search" id="searchBar">
+                    <button id="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
 
-    
+<div id="emptySpace"></div>
+
+<style>
+    /*Nav bar*/
+
+    #carouselNav {
+        width: 100px;
+        display: inline-block;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+
+    @keyframes slideInFromTop {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translateX(-5px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    #logo {
+        height: 50px;
+        width: 50px;
+        margin-left: 40px;
+        vertical-align: middle;
+        display: inline-block;
+        -webkit-animation: slideInFromTop 1s;
+        /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: slideInFromTop 1s;
+        /* Firefox < 16 */
+        -ms-animation: slideInFromTop 1s;
+        /* Internet Explorer */
+        -o-animation: slideInFromTop 1s;
+        /* Opera < 12.1 */
+        animation: slideInFromTop 1s;
+    }
+
+    #name {
+        vertical-align: middle;
+        display: inline-block;
+        border-left: solid white 1px;
+
+    }
+
+    .navbarBrand {
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        line-height: 80%;
+        margin: 5px;
+        color: white;
+    }
+
+    #navbarName {
+        letter-spacing: 1px;
+        -webkit-animation: slideInFromLeft 3s;
+        /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: slideInFromLeft 3s;
+        /* Firefox < 16 */
+        -ms-animation: slideInFromLeft 3s;
+        /* Internet Explorer */
+        -o-animation: slideInFromLeft 3s;
+        /* Opera < 12.1 */
+        animation: slideInFromLeft 3s;
+    }
+
+    #navbarTitle {
+        letter-spacing: 2px;
+        font-size: 13px;
+        -webkit-animation: slideInFromLeft 3s;
+        /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: slideInFromLeft 3s;
+        /* Firefox < 16 */
+        -ms-animation: slideInFromLeft 3s;
+        /* Internet Explorer */
+        -o-animation: slideInFromLeft 3s;
+        /* Opera < 12.1 */
+        animation: slideInFromLeft 3s;
+    }
+
+    #nav {
+        width: 100%;
+        height: 80px;
+        border-bottom: 1px solid #121212;
+        background-color: #454545;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .navlink {
+        margin-right: 40px;
+        font-family: 'Raleway', sans-serif;
+        color: white;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transition: color linear 1s;
+        transition: color linear 1s;
+
+    }
+
+    .navlink:hover {
+        color: #FF2400;
+        text-decoration: none;
+    }
+
+    #dropdownMenuButton {
+        color: white;
+        display: none;
+        float: right;
+        margin-top: 25px;
+        padding-right: 5px;
+        vertical-align: middle;
+        -webkit-animation: slideInFromTop 1s;
+        /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: slideInFromTop 1s;
+        /* Firefox < 16 */
+        -ms-animation: slideInFromTop 1s;
+        /* Internet Explorer */
+        -o-animation: slideInFromTop 1s;
+        /* Opera < 12.1 */
+        animation: slideInFromTop 1s;
+    }
+
+    #navbuttons {
+        float: right;
+        -webkit-animation: slideInFromTop 1s;
+        /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: slideInFromTop 1s;
+        /* Firefox < 16 */
+        -ms-animation: slideInFromTop 1s;
+        /* Internet Explorer */
+        -o-animation: slideInFromTop 1s;
+        /* Opera < 12.1 */
+        animation: slideInFromTop 1s;
+    }
+
+    .dropdown-menu {
+        background: #323232;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+
+    }
+
+
+    .dropdown-item {
+        font-family: 'Raleway', sans-serif;
+        color: white;
+        margin-top: 25px;
+        padding-right: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transition: color linear 1.5s;
+        transition: color linear 1.5s;
+    }
+
+    .dropdown-item:hover {
+        color: #0adecb;
+        text-decoration: none;
+        background-color: transparent;
+    }
 
 
 
+    .navbar-nav {
+        min-width: 360px;
+        float: left;
+        margin: 0;
+    }
 
-    <!--scripts-->
-    <!--jQuery CDN-->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="./assets/javascript/app.js"></script>
+    .nav-item {
+        float: left;
+    }
 
-</body>
+    .fas fa-bars {
+        color: white;
+    }
 
-</html>
+    #searchBar {
+        border-radius: 10px;
+        outline: none;
+        border: none;
+    }
+
+    #searchWrapper {
+        padding-left: 5px;
+        padding-right: 5px;
+        display: inline-block;
+        background-color: white;
+        border-radius: 15px;
+        margin-top: 25px;
+    }
+
+    #searchButton {
+        background: none;
+        border: none;
+    }
+</style>
