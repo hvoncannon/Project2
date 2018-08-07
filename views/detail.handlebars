@@ -3,17 +3,17 @@
     <!--Author image, name, and voting on left side of post-->
     <div class="col-md-3">
         <div class="row justify-content-center">
-            <img class="userPostImage" src="../public/images/userPlaceholder.jpg">
+            <img class="userPostImage" src="/images/userPlaceholder.jpg">
         </div>
         <div class="row justify-content-center">
-            <h6 class="userPostName">{{this.author}}</h6>
+            <h6 class="userPostName">{{data.UserId}}</h6>
         </div>
         <div class="row justify-content-center">
             <span>
                 <button class="upvoteButton">
                     <i class="fas fa-chevron-circle-up"></i>
                 </button>
-                <h4 class="voteValue">{{this.voteValue}}</h4>
+                <h4 class="voteValue">{{data.upvotes}}</h4>
                 <button class="downvoteButton">
                     <i class="fas fa-chevron-circle-down"></i>
                 </button>
@@ -28,23 +28,23 @@
             <!--Heading: Title / date posted-->
             <span class="userPostHeading">
                 <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
-                    <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3>
+                    <h3 class="userPostTitle" value={{data.id}}>{{data.title}}</h3>
                 </a> -
-                <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
+                <h4 class="userPostTimeStamp">{{data.createdAt}} - #{{data.CategoryId}}</h4>
             </span>
             <hr id="postLineBreak">
 
             <!--Post body containing text and/or images-->
             <div class="userPostTextBody">
                 <p>
-                    {{this.post}}
+                    {{data.content}}
                 </p>
             </div>
 
             <!--Preview of amount of comments-->
             <hr id="postLineBreak">
 
-            <h4 class="userPostCommentsPreview">{{this.commentsAmount}}</h4>
+            <h4 class="userPostCommentsPreview">{{data.commentsAmount}}</h4>
 
 
         </div>
@@ -55,15 +55,15 @@
     <!--Preview of amount of comments-->
     <hr id="postLineBreak">
 
-    <h4 class="userPostCommentsPreview">{{this.commentsAmount}}</h4>
+    <h4 class="userPostCommentsPreview">{{data.commentsAmount}}</h4>
 
     <div class="userPostsComments">
         <div class="row">
             <div class="col-md-3">
-                <h5 class="userPostsCommentsName">{{this.comment.name}}</h5>
+                <h5 class="userPostsCommentsName">{{data.comment.name}}</h5>
             </div>
             <div class="col-md-9">
-                <p class="userPostsCommentsText">{{this.comment.text}}</p>
+                <p class="userPostsCommentsText">{{data.comment.text}}</p>
             </div>
         </div>
     </div>

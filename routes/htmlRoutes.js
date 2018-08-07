@@ -52,6 +52,14 @@ module.exports = function (app) {
     }
   });
 
+  app.get("/:id", function (req, res) {
+    db.Post.findOne({
+      where: {id: req.params.id}
+    }).then(function(dbPost) {
+      res.render("detail", {data: dbPost.dataValues});
+    });
+    
+  });
 
   app.get("/category", function (req, res) {
     res.render("category", {
