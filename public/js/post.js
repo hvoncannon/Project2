@@ -19,11 +19,7 @@ $("#buttonOrderedList").on("click", function() {
 $("#buttonUnorderedList").on("click", function() {
   document.execCommand("insertUnorderedList", false, null);
 });
-// $(".fontValues").on("click", function() {
-//   var grabFont = $(this).val();
-//   console.log(grabFont);
-//   document.execCommand("insertFontSize", false, grabFont);
-// });
+
 
 $("#post-submit").on("click", function(event) {
   event.preventDefault();

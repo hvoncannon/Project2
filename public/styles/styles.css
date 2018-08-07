@@ -1,5 +1,24 @@
+/* CORRECT STYLE */
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+
+body {
+  background: linear-gradient(#343434, #121212);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  color: white;
+  font-family: "Segoe Script";
+}
+#emptySpace {
+  height: 100px;
+  margin: 50px;
+}
 .list-group-item {
   line-height: 2.5;
+}
+.segoeFont {
+  font-family: 'Kaushan Script', "cursive";
+  color: white;
 }
 
 /* NAVBAR */
@@ -9,7 +28,6 @@
   margin-top: 20px;
   margin-left: 30px;
 }
-
 
 @keyframes slideInFromTop {
   0% {
@@ -61,6 +79,11 @@
   line-height: 80%;
   margin: 5px;
   color: white;
+}
+
+#navBarUsername {
+  display: inline-block;
+  margin-right: 50px;
 }
 
 #navbarName {
@@ -444,6 +467,10 @@ fieldset {
   border-radius: 10px;
 }
 
+label[for=username] {
+  margin-top: 10px;
+}
+
 .sidebar {
   border: solid;
 }
@@ -461,7 +488,8 @@ body {
   border-radius: 5px;
 }
 
-#username {
+#username,
+#usernameLogin {
   margin-bottom: -24px;
 }
 

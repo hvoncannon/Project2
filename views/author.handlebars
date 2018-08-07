@@ -1,23 +1,24 @@
-
 {{!-- USER SUBMITS A NEW POST --}}
 <div id="createPost">
-  <h2>{{title}}</h2>
   <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <h4>{{msg}}</h4>
-      </div>
-    </div>
-{{username}}
+  
     <div class="row"> 
-      <div class="col-md-6 offset-md-3" >
+      <div class="col-md-3">
+        <div class="row justify-content-center">
+            <h4 class="segoeFont"> {{msg}} </h4>
+        </div>
+      </div>
+
+      <div class="col-md-9" >
         <div id="postContainer" class="container">
           <div class="row">
             <div class="col-12">
               <form class="clearfix mb-4" action="POST">
 
                 <div class="form-group">
-                  <label for="username"></label>
+                  <label for="username">
+                    <h4 class="segoeFont">New User Sign-Up</h4>
+                  </label>
                   <input type="text" id="username" class="form-control" aria-describedby="username" placeholder="username">
                 </div>
 
@@ -26,26 +27,15 @@
                   <input type="text" id="password" class="form-control" aria-describedby="password" placeholder="password">
                 </div>
 
-                <div class="row">
-                  <div class="col-10">
-                    <fieldset>
-                      <button type="button" class="btn btn-sm" id="buttonBold">
-                        <b>B</b>
-                      </button>
-                      <button type="button" class="btn btn-sm" id="buttonItalic">
-                        <i>i</i>
-                      </button>
-                    </fieldset>
-                  </div>
-                </div>
-
-                <button id="submit" type="submit" class="btn btn-primary float-right">Submit</button>
+                <button id="submit" type="submit" class="btn btn-danger float-right">Submit</button>
               </form>
 
               <form class="clearfix mb-4" action="POST">
 
                 <div class="form-group">
-                  <label for="username"></label>
+                  <label for="username">
+                    <h4 class="segoeFont">Existing User Log-in</h4>
+                  </label>
                   <input type="text" id="usernameLogin" class="form-control" aria-describedby="username" placeholder="usernameLogin">
                 </div>
 
@@ -54,38 +44,12 @@
                   <input type="text" id="passwordLogin" class="form-control" aria-describedby="password" placeholder="password">
                 </div>
 
-                <div class="row">
-                  <div class="col-10">
-                    <fieldset>
-                      <button type="button" class="btn btn-sm" id="buttonBold">
-                        <b>B</b>
-                      </button>
-                      <button type="button" class="btn btn-sm" id="buttonItalic">
-                        <i>i</i>
-                      </button>
-                    </fieldset>
-                  </div>
-                </div>
-
-                <button id="submitLogin" type="submit" class="btn btn-primary float-right">Submit</button>
+                <button id="submitLogin" type="submit" class="btn btn-danger float-right">Submit</button>
               </form>
-              <a href="/logout">Logout</a>
             </div>
           </div>
         </div>
       </div>
-
-      {{!-- <div class="col-3">
-        <a>r/Android</a>
-        <div class="container sidebar">
-          <div class="row">
-            <div class="col">
-              <a>Android news, reviews, tips, and discussions about rooting, tutorials, and apps. Generic discussion about phones/tablets
-                is allowed, but technical-support and carrier-related issues should be asked in their respective subreddits!</a>
-            </div>
-          </div>
-        </div>
-      </div> --}}
     </div>
   </div>
 </div>
@@ -95,10 +59,6 @@
 
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=pdc36rqic3ufhdd3tpjwu40dx8wizyfz5kuc4mom7dei2x3s"></script>
 <script>
-
-  $("#buttonBold").on("click", function () {
-    // ADD FUNCTION FOR BOLD
-  })
 
   $("#submit").on("click", function (event) {
     event.preventDefault();
