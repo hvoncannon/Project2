@@ -29,19 +29,19 @@
 
             <!--Heading: Title / date posted-->
             <span class="userPostHeading">
-                <a class="userPostPreview" href="/post/"{{{id}}} target="_blank">
-                    <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3>
-                </a> -
+                <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3> -
                 <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
             </span>
             <hr id="postLineBreak">
 
             <!--Post body containing text and/or images-->
-            <div class="userPostTextBody">
-                <p>
-                    {{this.post}}
-                </p>
-            </div>
+            <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
+                <div class="userPostTextBody">
+                    <p>
+                        {{this.post}}
+                    </p>
+                </div>
+            </a>
 
             <!--Preview of amount of comments-->
             <hr id="postLineBreak">

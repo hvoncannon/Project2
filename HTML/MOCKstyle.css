@@ -258,6 +258,14 @@ body {
     color: #222222;
 }
 
+.userPostTextBodyPreview {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 95%;
+    font-style: italic;
+}
+
 p {
     color: #cbcbcb
 }
