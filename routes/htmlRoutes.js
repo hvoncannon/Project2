@@ -3,9 +3,9 @@ var db = require("../models");
 module.exports = function (app) {
   app.get("/", function(req, res) {
     var postsArr = [];
-    db.Post.findAll({}).then(function (dbPost) {
+    db.Post.findAll({include: [db.User]}).then(function (dbPost) {
       for(var i = 0; i < dbPost.length; i++) {
-        console.log(dbPost[i].dataValues.UserId);
+        console.log(dbPost[i].dataValues);
         postsArr.push(dbPost[i].dataValues);
       }
       res.render("index", {posts: postsArr});
@@ -57,9 +57,12 @@ module.exports = function (app) {
   });
 
   app.get("/:id", function (req, res) {
-    db.Post.findOne({
-      where: {id: req.params.id}
-    }).then(function(dbPost) {
+    db.Post.findOne(
+      {
+        where: {id: req.params.id},
+        include: [db.User]
+      }
+    ).then(function(dbPost) {
       res.render("detail", {data: dbPost.dataValues});
     });
     
