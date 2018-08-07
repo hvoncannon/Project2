@@ -1,3 +1,15 @@
+body {
+  background: linear-gradient(#343434, #121212);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+#emptySpace {
+  height: 100px;
+  margin: 50px;
+}
+
 .list-group-item {
   line-height: 2.5;
 }

@@ -29,14 +29,13 @@
 
             <!--Heading: Title / date posted-->
             <span class="userPostHeading">
-                <h3 class="userPostTitle">{{this.title}}</h3> -
-                <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.CategoryId}}</h4>
+                <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3> -
+                <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
             </span>
             <hr id="postLineBreak">
 
             <!--Post body containing text and/or images-->
-            <a class="userPostPreview" href="https://media1.tenor.com/images/671a1fe19cb34a2d2162e31e68a771d4/tenor.gif?itemid=7267453"
-                target="_blank">
+            <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
                 <div class="userPostTextBody">
                     <p>
                         {{this.content}}
