@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
 $("#buttonBold").on("click", function() {
   document.execCommand("bold", false, null);
 });
@@ -25,29 +27,21 @@ $("#buttonUnorderedList").on("click", function() {
 //   document.execCommand("insertFontSize", false, grabFont);
 // });
 
-$("#submit").on("click", function(event) {
+$("#post-submit").on("click", function(event) {
   event.preventDefault();
   console.log("test");
-  var newPost = {
-    title: $("#post-title")
-      .val()
-      .trim(),
-    description: $("#post-description")
-      .val()
-      .trim(),
-    category: $("#dropdown-menu").val()
-  };
-  //   // Send the POST request.
-  //   $.ajax("/", {
-  //     type: "POST",
-  //     data: newPost
-  //   }).then(function(res) {
-  //     console.log(res);
-  //     // Reload the page to get the updated list
-  //     location.reload("/");
-  //   });
-  // });
-
-  $.post("/new/post", newPost);
-  console.log(newPost);
+  // var newPost = {
+  //   title: $("#post-title").val().trim(),
+  //   text: $("#post-text").val().trim(),
+  //   category: $("#dropdown-menu").val()
+  // };
+  // $.ajax("/new/post", {
+  //   type: "POST",
+  //   data: newPost
+  // }).then(function (res) {
+  //   console.log(res);
+  // }
+  // );
+  // $.post("/new/post", newPost);
+  // console.log(newPost);
 });

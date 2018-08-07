@@ -1,9 +1,9 @@
-$("#submit").on("submit", function(event) {
+$("#submitCat").on("click", function(event) {
   event.preventDefault();
-  
+  console.log("Test");
   var newCategory = {
     categoryName: $("#categoryName").val().trim(),
-    categoryRules: $("#categoryRules").val().trim(),
+    // categoryRules: $("#categoryRules").val().trim(),
   };
     // Send the POST request.
   $.ajax("/new/category", {
@@ -12,7 +12,7 @@ $("#submit").on("submit", function(event) {
   }).then(function(res) {
     console.log(res);
     // Reload the page to get the updated list
-    location.reload("/");
+    // location.reload("/");
   });
 });
   
