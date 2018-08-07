@@ -1,57 +1,66 @@
 <div class="row justify-content-center" id="postPreview">
 
 
-    {{#each posts}}
-    <!--Author image, name, and voting on left side of post-->
-    <div class="col-md-3">
-        <div class="row justify-content-center">
-            <img class="userPostImage" src="../public/images/userPlaceholder.jpg">
-        </div>
-        <div class="row justify-content-center">
-            <h6 class="userPostName">{{this.UserId}}</h6>
-        </div>
-        <div class="row justify-content-center">
-            <span>
-                <button class="upvoteButton">
-                    <i class="fas fa-chevron-circle-up"></i>
-                </button>
-                <h4 class="voteValue">{{this.voteValue}}</h4>
-                <button class="downvoteButton">
-                    <i class="fas fa-chevron-circle-down"></i>
-                </button>
-            </span>
-        </div>
-    </div>
+    <div class="col-md-9">
 
-    <!--Author's post-->
-    <div class="col-md-6">
-        <div class="userPostBody">
-
-            <!--Heading: Title / date posted-->
-            <span class="userPostHeading">
-                <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3> -
-                <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
-            </span>
-            <hr id="postLineBreak">
-
-            <!--Post body containing text and/or images-->
-            <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
-                <div class="userPostTextBody">
-                    <p>
-                        {{this.content}}
-                    </p>
+        {{#each posts}}
+        <div class="row justify-content-center">
+            <!--Author image, name, and voting on left side of post-->
+            <div class="col-md-4">
+                <div class="row justify-content-center">
+                    <img class="userPostImage" src="/images/userPlaceholder.jpg">
                 </div>
-            </a>
+                <div class="row justify-content-center">
+                    <h6 class="userPostName">{{this.UserId}}</h6>
+                </div>
+                <div class="row justify-content-center">
+                    <span>
+                        <button class="upvoteButton">
+                            <i class="fas fa-chevron-circle-up"></i>
+                        </button>
+                        <h4 class="voteValue">{{this.voteValue}}</h4>
+                        <button class="downvoteButton">
+                            <i class="fas fa-chevron-circle-down"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
 
-            <!--Preview of amount of comments-->
-            <hr id="postLineBreak">
-
-            <h4 class="userPostCommentsPreview">{{this.commentsAmount}}</h4>
+            <!--Author's post-->
 
 
+            <div class="col-md-8">
+                <div class="userPostBody">
+
+                    <!--Heading: Title / date posted-->
+                    <span class="userPostHeading">
+                        <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3> -
+                        <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
+                    </span>
+                    <hr id="postLineBreak">
+
+                    <!--Post body containing text and/or images-->
+                    <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
+                        <div class="userPostTextBody">
+                            <p id="postPreview">
+                                {{this.content}}
+                            </p>
+                        </div>
+                    </a>
+
+                    <!--Preview of amount of comments-->
+                    <hr id="postLineBreak">
+
+                    <h4 class="userPostCommentsPreview">{{this.commentsAmount}}</h4>
+
+                </div>
+            </div>
         </div>
+        {{/each}}
+
     </div>
-    {{/each}}
+
+
 
     <!--SIDE BAR-->
     <div class="col-md-3">
