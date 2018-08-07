@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "toor54321",
+    "password": "",
     "database": "postIt",
     "host": "localhost",
     "dialect": "mysql"
