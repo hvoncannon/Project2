@@ -56,11 +56,5 @@ module.exports = function (app) {
   app.get("/failure", function (req, res) {
     res.send("failure");
   });
-
-  // Render 404 page for any unmatched routes
-  // app.get("*", function (req, res) {
-  //   res.render("404");
-  //   console.log(req.isAuthenticated());
-  // });
 };
 
