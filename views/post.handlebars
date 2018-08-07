@@ -75,23 +75,4 @@
     </div>
   </div>
 </div>
-
-<script>
-  $("#post-submit").on("click", function (event) {
-    event.preventDefault();
-    console.log("testttt");
-    var newPost = {
-      title: $("#post-title").val().trim(),
-      text: $("#post-text").val().trim(),
-      category: $("#dropdown-menu").val()
-    };
-    $.ajax("/new/post", {
-      type: "POST",
-      data: newPost
-    }).then(function (res) {
-      console.log(res);
-    }
-    );
-  });
-
-</script>
+<script src="../public/js/post.js"></script>

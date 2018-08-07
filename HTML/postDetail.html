@@ -119,11 +119,8 @@
 
                 <!--Heading: Title / date posted-->
                 <span class="userPostHeading">
-                    <a class="userPostPreview" href="https://media1.tenor.com/images/671a1fe19cb34a2d2162e31e68a771d4/tenor.gif?itemid=7267453"
-                        target="_blank">
-                        <h3 class="userPostTitle">POST TITLE HERE</h3>
-                    </a> -
-                    <h4 class="userPostTimeStamp">posted 6h ago</h4>
+                    <h3 class="userPostTitle">{{this.title}}</h3> -
+                    <h4 class="userPostTimeStamp">{{this.createdAt}}</h4>
                 </span>
                 <hr id="postLineBreak">
 
@@ -131,8 +128,7 @@
 
                 <div class="userPostTextBody">
                     <p>
-                        Hello, this is a preview of a full post. Click on the text in order to be redirected to the full post. I don't know what
-                        else to say. I'm just filling in some space. #LAbron
+                        {{this.text}}
                     </p>
                 </div>
 
@@ -140,15 +136,15 @@
                 <!--Preview of amount of comments-->
                 <hr id="postLineBreak">
 
-                <h4 class="userPostCommentsPreview">241 comments</h4>
+                <h4 class="userPostCommentsPreview">{{this.commentsAmount}}</h4>
 
                 <div class="userPostsComments">
                     <div class="row">
                         <div class="col-md-3">
-                            <h5 class="userPostsCommentsName">Commenter 1</h5>
+                            <h5 class="userPostsCommentsName">{{this.comment.name}}/h5>
                         </div>
                         <div class="col-md-9">
-                            <p class="userPostsCommentsText">Wow this post sucks</p>
+                            <p class="userPostsCommentsText">{{this.comment.text}}</p>
                         </div>
                     </div>
                 </div>

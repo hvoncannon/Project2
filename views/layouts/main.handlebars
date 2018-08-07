@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Post.it</title>
-
+  <link rel="icon" type="image/png" href="/images/PostItLogo.png">
   <!--Stylesheets-->
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   {{!-- Bootstrap CDN --}}
@@ -21,7 +21,7 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-  
+
   <!--Google Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
@@ -32,6 +32,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
   <div class="container-fluid" id="nav">
     <div class="row">
         <div class="col-sm-12">
@@ -114,6 +115,49 @@
   </div>
 </div>
   
+=======
+
+  <div class="container-fluid" id="nav">
+    <div class="row">
+      <div class="col-sm-12">
+        <span>
+          <a href="./">
+            <img id="logo" src="/images/PostItLogoWhite.png">
+          </a>
+          <div id="carouselNav" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img id="slogan" class="d-block w-100" src="/images/post.png" alt="POST">
+              </div>
+              <div class="carousel-item">
+                <img id="slogan" class="d-block w-100" src="/images/comment.png" alt="COMMENT">
+              </div>
+              <div class="carousel-item">
+                <img id="slogan" class="d-block w-100" src="/images/vote.png" alt="VOTE">
+              </div>
+            </div>
+          </div>
+        </span>
+        <span id="navbuttons">
+          <a class="navlink" href="./">
+            <i class="fas fa-home"></i>
+          </a>
+          <div id="searchWrapper">
+            <input type="text" placeholder="Search" id="searchBar">
+            <button id="searchButton">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div id="emptySpace"></div>
+
+
+  {{{body}}}
+>>>>>>> master
   <script src="/js/post.js"></script>
   <script src="/js/category.js"></script>
 </body>
