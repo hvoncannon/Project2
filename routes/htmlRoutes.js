@@ -56,7 +56,6 @@ module.exports = function (app) {
     db.Post.findOne({
       where: {id: req.params.id}
     }).then(function(dbPost) {
-      console.log(dbPost.dataValues);
       res.render("detail", {data: dbPost.dataValues});
     });
     
