@@ -101,49 +101,6 @@
   </div>
 </div>
 
-<style>
-  #postContainer {
-    background-color: gray;
-    border-radius: 10px;
-  }
-
-  .sidebar {
-    border: solid;
-  }
-
-  .buttonMarkups {
-    width: 28px;
-  }
-
-  #buttonOrderedList,
-  #buttonUnorderedList {
-    width: 35px;
-  }
-
-  body {
-    background-color: black;
-    color: white;
-  }
-
-  #post-description {
-    border-radius: 5px;
-    height: 100px;
-  }
-
-  #post-author {
-    margin-bottom: -24px;
-  }
-
-  fieldset {
-    margin-bottom: -20px;
-  }
-
-  [contentEditable=true]:empty:not(:focus):before {
-    content: attr(data-text);
-    color: gray;
-  }
-</style>
-
 <script>
   $("#post-submit").on("click", function (event) {
     event.preventDefault();

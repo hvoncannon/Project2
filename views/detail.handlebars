@@ -1,7 +1,5 @@
 <div class="row justify-content-center" id="postPreview">
 
-
-    {{#each posts}}
     <!--Author image, name, and voting on left side of post-->
     <div class="col-md-3">
         <div class="row justify-content-center">
@@ -29,7 +27,7 @@
 
             <!--Heading: Title / date posted-->
             <span class="userPostHeading">
-                <a class="userPostPreview" href="/post/"{{{id}}} target="_blank">
+                <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
                     <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3>
                 </a> -
                 <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
@@ -51,42 +49,62 @@
 
         </div>
     </div>
-    {{/#each}}
 
-    <!--SIDE BAR-->
-    <div class="col-md-3">
-        <div id="sidebar">
-            <h3 id="sidebarHeader">Start Here</h3>
-            <hr id="postLineBreak">
-            <div class="col-md-12">
-                <span>
-                    <a href="">
-                        <button id="createAuthorButton">Create an Author</button>
-                    </a>
-                </span>
-                <span>
-                    <a href="">
-                        <button id="createCategoryButton">Create a Category</button>
-                    </a>
-                </span>
-                <span>
-                    <a href="">
-                        <button id="createPostButton">Create a Post</button>
-                    </a>
-                </span>
+
+
+    <!--Preview of amount of comments-->
+    <hr id="postLineBreak">
+
+    <h4 class="userPostCommentsPreview">{{this.commentsAmount}}</h4>
+
+    <div class="userPostsComments">
+        <div class="row">
+            <div class="col-md-3">
+                <h5 class="userPostsCommentsName">{{this.comment.name}}</h5>
             </div>
-        </div>
-
-        <div id="communityGuidelines">
-            <h3 id="communityGuidelinesHeader">Community Guidelines</h3>
-            <hr id="postLineBreak">
-            <div class="col-md-12">
-                <p id="communityGuidelinesText">
-                    Post It is a platform for users to discuss, share, and post about a variety of topics in an open environment. Please refrain
-                    form posting any NSFW content. Be respectful, responsible, and mindful of your interactions.
-                </p>
+            <div class="col-md-9">
+                <p class="userPostsCommentsText">{{this.comment.text}}</p>
             </div>
         </div>
     </div>
+
+
+</div>
+</div>
+
+<div class="col-md-3">
+    <div id="sidebar">
+        <h3 id="sidebarHeader">Start Here</h3>
+        <hr id="postLineBreak">
+        <div class="col-md-12">
+            <span>
+                <a href="">
+                    <button id="createAuthorButton">Create an Author</button>
+                </a>
+            </span>
+            <span>
+                <a href="">
+                    <button id="createCategoryButton">Create a Category</button>
+                </a>
+            </span>
+            <span>
+                <a href="">
+                    <button id="createPostButton">Create a Post</button>
+                </a>
+            </span>
+        </div>
+    </div>
+
+    <div id="communityGuidelines">
+        <h3 id="communityGuidelinesHeader">Community Guidelines</h3>
+        <hr id="postLineBreak">
+        <div class="col-md-12">
+            <p id="communityGuidelinesText">
+                Post It is a platform for users to discuss, share, and post about a variety of topics in an open environment. Please refrain
+                form posting any NSFW content. Be respectful, responsible, and mindful of your interactions.
+            </p>
+        </div>
+    </div>
+</div>
 
 </div>
