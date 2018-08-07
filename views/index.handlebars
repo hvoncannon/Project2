@@ -29,20 +29,19 @@
 
             <!--Heading: Title / date posted-->
             <span class="userPostHeading">
-                <h3 class="userPostTitle">{{this.title}}</h3> -
+                <a class="userPostPreview" href="/post/"{{{id}}} target="_blank">
+                    <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3>
+                </a> -
                 <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
             </span>
             <hr id="postLineBreak">
 
             <!--Post body containing text and/or images-->
-            <a class="userPostPreview" href="https://media1.tenor.com/images/671a1fe19cb34a2d2162e31e68a771d4/tenor.gif?itemid=7267453"
-                target="_blank">
-                <div class="userPostTextBody">
-                    <p>
-                        {{this.post}}
-                    </p>
-                </div>
-            </a>
+            <div class="userPostTextBody">
+                <p>
+                    {{this.post}}
+                </p>
+            </div>
 
             <!--Preview of amount of comments-->
             <hr id="postLineBreak">
@@ -55,182 +54,3 @@
     {{#each}}
 
 </div>
-
-<style>
-    /*Landing Page*/
-
-    #postPreview {
-        margin-top: 20px;
-    }
-
-    .voteValue {
-        display: inline-block;
-    }
-
-    .userPostImage {
-        border-radius: 50%;
-        height: 100px;
-    }
-
-    .upvoteButton {
-        background: none;
-        border: none;
-        color: #FF2400;
-    }
-
-    .downvoteButton {
-        background: none;
-        border: none;
-        color: #FF2400;
-    }
-
-    .userPostName {
-        color: white;
-        font-size: 15px;
-    }
-
-    .voteValue {
-        color: #888888;
-        font-size: 20px;
-    }
-
-    .userPostBody {
-        background-color: #454545;
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 20px;
-    }
-
-    .userPostTitle {
-        display: inline-block;
-        color: white;
-        letter-spacing: 3px;
-    }
-
-    .userPostTimeStamp {
-        display: inline-block;
-        font-style: italic;
-        font-size: 15px;
-        color: #222222;
-    }
-
-    p {
-        color: #cbcbcb
-    }
-
-    .userPostPreview {
-        text-decoration: none;
-        font-style: italic;
-    }
-
-    .userPostPreview:hover {
-        text-decoration: none;
-    }
-
-    #postBreakLine {
-        background-color: #cbcbcb
-    }
-
-    #postPreview {
-        margin-bottom: 50px;
-    }
-
-    .userPostCommentsPreview {
-        display: inline-block;
-        font-style: italic;
-        font-size: 15px;
-        color: #222222;
-    }
-
-    /*SideBar*/
-
-    /*Links*/
-
-    #sidebar {
-        background-color: #454545;
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 20px;
-        margin-right: 80px;
-    }
-
-    #sidebarHeader {
-        display: inline-block;
-        color: white;
-        letter-spacing: 3px;
-    }
-
-    #createPostButton {
-        padding: 10px;
-        width: 100%;
-        outline: none;
-        border: none;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        background-color: white;
-        color: black;
-        font-size: 13px;
-        transition: all 1s;
-    }
-
-    #createPostButton:hover {
-        background-color: #9A9A9A;
-    }
-
-    #createAuthorButton {
-        padding: 10px;
-        width: 100%;
-        outline: none;
-        border: none;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        background-color: white;
-        color: black;
-        font-size: 13px;
-        transition: all 1s;
-    }
-
-    #createAuthorButton:hover {
-        background-color: #9A9A9A;
-    }
-
-    #createCategoryButton {
-        padding: 10px;
-        width: 100%;
-        outline: none;
-        border: none;
-        border-radius: 5px;
-        margin-bottom: 5px;
-        background-color: white;
-        color: black;
-        font-size: 13px;
-        transition: all 1s;
-    }
-
-    #createCategoryButton:hover {
-        background-color: #9A9A9A;
-    }
-
-
-    /*Community Guidelines*/
-
-    #communityGuidelines {
-        background-color: #454545;
-        padding: 15px;
-        border-radius: 5px;
-        margin-bottom: 20px;
-        margin-right: 80px;
-    }
-
-    #communityGuidelinesText {
-        color: #9A9A9A;
-        font-size: 12px;
-    }
-
-    #communityGuidelinesHeader {
-        display: inline-block;
-        color: white;
-        letter-spacing: 3px;
-        font-size: 13px;
-    }
-</style>

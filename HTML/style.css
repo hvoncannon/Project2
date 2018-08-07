@@ -376,3 +376,26 @@ p {
     letter-spacing: 3px;
     font-size: 13px;
 }
+
+/* comments */
+.userPostsComments {
+    background-color: #323232;
+    margin-top: 3px;
+}
+
+.userPostsCommentsName {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.userPostsCommentsText {
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
