@@ -28,18 +28,17 @@ $("#buttonUnorderedList").on("click", function() {
 $("#post-submit").on("click", function(event) {
   event.preventDefault();
   console.log("test");
-  // var newPost = {
-  //   title: $("#post-title").val().trim(),
-  //   text: $("#post-text").val().trim(),
-  //   category: $("#dropdown-menu").val()
-  // };
-  // $.ajax("/new/post", {
-  //   type: "POST",
-  //   data: newPost
-  // }).then(function (res) {
-  //   console.log(res);
-  // }
-  // );
-  // $.post("/new/post", newPost);
-  // console.log(newPost);
+  var newPost = {
+    title: $("#post-title").val().trim(),
+    text: $("#post-text").val().trim(),
+    category: $("#dropdown-menu").val()
+  };
+  $.ajax("/new/post", {
+    type: "POST",
+    data: newPost
+  }).then(function (res) {
+    console.log(res);
+  }
+  );
+  console.log(newPost);
 });
