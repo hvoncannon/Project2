@@ -8,7 +8,7 @@
             <img class="userPostImage" src="../public/images/userPlaceholder.jpg">
         </div>
         <div class="row justify-content-center">
-            <h6 class="userPostName">{{this.author}}</h6>
+            <h6 class="userPostName">{{this.UserId}}</h6>
         </div>
         <div class="row justify-content-center">
             <span>
@@ -38,7 +38,7 @@
             <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
                 <div class="userPostTextBody">
                     <p>
-                        {{this.post}}
+                        {{this.content}}
                     </p>
                 </div>
             </a>
@@ -51,7 +51,7 @@
 
         </div>
     </div>
-    {{/#each}}
+    {{/each}}
 
     <!--SIDE BAR-->
     <div class="col-md-3">
@@ -60,17 +60,17 @@
             <hr id="postLineBreak">
             <div class="col-md-12">
                 <span>
-                    <a href="">
+                    <a href="/author">
                         <button id="createAuthorButton">Create an Author</button>
                     </a>
                 </span>
                 <span>
-                    <a href="">
+                    <a href="/category">
                         <button id="createCategoryButton">Create a Category</button>
                     </a>
                 </span>
                 <span>
-                    <a href="">
+                    <a href="/post">
                         <button id="createPostButton">Create a Post</button>
                     </a>
                 </span>
