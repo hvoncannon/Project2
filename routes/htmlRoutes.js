@@ -17,7 +17,17 @@ module.exports = function (app) {
       for(var i = 0; i < dbPost.length; i++) {
         postsArr.push(dbPost[i].dataValues);
       }
-      res.render("index", {posts: postsArr});
+      // IF user is logged in, display both the posts and username on the index page, ELSE only display posts
+      if (req.isAuthenticated()) {
+        res.render("index", {
+          posts: postsArr,
+          username: req.user.username,
+        });
+      } else {
+        res.render("index", {
+          posts: postsArr
+        });
+      }
     });
   });
   // Load Post Page
@@ -32,13 +42,12 @@ module.exports = function (app) {
       }
       if (req.isAuthenticated()) {
         res.render("post", {
-          title: "Post.it",
           msg: "Post Creation",
           username: req.user.username,
           categories: cats
         });
       } else {
-        res.send("You need to be logged in");
+        res.send("You need to be logged in to make a post!");
       }
     });
     //checks if the user is logged in and renders the form if they are
