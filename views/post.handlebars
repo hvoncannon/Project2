@@ -44,8 +44,7 @@
                       <button type="button" class="btn btn-sm" id="buttonOrderedList">OL</button>
                       <button type="button" class="btn btn-sm" id="buttonUnorderedList">UL</button>
                       {{!--
-                      <button type="button" class="btn btn-sm dropdown-toggle" id="buttonFontSize" aria-haspopup="true"
-                        aria-expanded="false" data-toggle="dropdown">Font</button> --}} {{!--
+                      <button type="button" class="btn btn-sm dropdown-toggle" id="buttonFontSize" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Font</button> --}} {{!--
                       <div class="dropdown-menu" aria-labelledby="buttonFontSize">
                         <option class="fontValues" value="1">1</option>
                         <option class="fontValues" value="2">2</option>
@@ -57,17 +56,17 @@
                   </div>
 
                   <div class="col-2">
-                    <div class="dropdown">
-                      <button type="button" id="buttonCategory" class="btn btn-primary dropdown-toggle float-right" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        Category
-                      </button>
 
-                      <div class="dropdown-menu" aria-labelledby="buttonCategory">
+                    <div class="form-group" aria-labelledby="buttonCategory">
+                      <label for="categorydropdown">Select a Category:</label>
+                      <select class="form-control" id="dropdown-menu">
                         {{#each categories}}
-                        <option class="dropdown-item" value={{id}}>{{name}}</option>
+                          <option class="form-control" value={{id}}>
+                            {{name}}
+                          </option>
                         {{/each}}
-                      </div>
+                      </select>
+
                     </div>
                   </div>
                 </div>
@@ -75,8 +74,7 @@
                 <div class="form-group">
                   <label for="post-text"></label>
                   <input type="text" id="post-text" class="form-control" aria-describedby="post-text" placeholder="text"> {{!--
-                  <div contenteditable="true" class="form-control" id="post-text" aria-describedby="post-description"
-                    data-text="Text"></div> --}}
+                  <div contenteditable="true" class="form-control" id="post-text" aria-describedby="post-description" data-text="Text"></div> --}}
                 </div>
 
                 <button id="post-submit" type="submit" class="btn btn-primary float-right">Post</button>
