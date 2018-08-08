@@ -42,16 +42,16 @@
                 <button id="submit" type="submit" class="btn btn-primary float-right">Submit</button>
               </form>
 
-              <form class="clearfix mb-4" action="POST">
+              <form class="clearfix mb-4" action="/signin" method="post">
 
                 <div class="form-group">
                   <label for="username"></label>
-                  <input type="text" id="usernameLogin" class="form-control" aria-describedby="username" placeholder="usernameLogin">
+                  <input type="text" name="username" id="username" class="form-control" aria-describedby="username" placeholder="usernameLogin">
                 </div>
 
                 <div class="form-group">
                   <label for="password"></label>
-                  <input type="text" id="passwordLogin" class="form-control" aria-describedby="password" placeholder="password">
+                  <input type="text" name="password" id="password" class="form-control" aria-describedby="password" placeholder="password">
                 </div>
 
                 <div class="row">
@@ -66,7 +66,7 @@
                     </fieldset>
                   </div>
                 </div>
-
+{{message}}test
                 <button id="submitLogin" type="submit" class="btn btn-primary float-right">Submit</button>
               </form>
               <a href="/logout">Logout</a>
@@ -118,22 +118,6 @@
     );
   });
 
-    $("#submitLogin").on("click", function (event) {
-    event.preventDefault();
-    var newUser = {
-      username: $("#usernameLogin").val(),
-      password: $("#passwordLogin").val().trim(),
-    };
 
-    // Send the POST request.
-    $.ajax("/signin", {
-      type: "POST",
-      data: newUser
-    }).then(function (res) {
-      console.log(test);
-      console.log(newUser);
-    }
-    );
-  });
 
 </script>

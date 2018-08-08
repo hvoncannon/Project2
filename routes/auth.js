@@ -15,8 +15,8 @@ module.exports = function (app, passport) {
   }, console.log("test")));
 
   app.post("/signin", passport.authenticate("local-signin", {
-    successRedirect: "/success",
-    failureRedirect: "/failure"
-  }, console.log("test")
+    failureRedirect: "/author",
+    failureFlash: true
+  }
   ));
 };
