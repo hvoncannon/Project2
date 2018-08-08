@@ -3,9 +3,18 @@ var db = require("../models");
 module.exports = function (app) {
   app.get("/", function(req, res) {
     var postsArr = [];
-    db.Post.findAll({include: [db.User]}).then(function (dbPost) {
+    db.Post.findAll(
+      {
+        // This include joins based off of the user id and only selects the column 'username'
+        // so that the server doesn't have to access the password and such
+        include: [
+          {
+            model: db.User,
+            attributes: ["username"]
+          }
+        ]
+      }).then(function (dbPost) {
       for(var i = 0; i < dbPost.length; i++) {
-        console.log(dbPost[i].dataValues);
         postsArr.push(dbPost[i].dataValues);
       }
       res.render("index", {posts: postsArr});
@@ -28,7 +37,6 @@ module.exports = function (app) {
           username: req.user.username,
           categories: cats
         });
-        console.log(req.user.id);
       } else {
         res.send("You need to be logged in");
       }
@@ -60,16 +68,18 @@ module.exports = function (app) {
     db.Post.findOne(
       {
         where: {id: req.params.id},
-        include: [db.User]
+        include: [
+          {
+            model: db.User,
+            attributes: ["username"]
+          }
+        ]
       }
     ).then(function(dbPost) {
       res.render("detail", {data: dbPost.dataValues});
     });
     
   });
-
-
-
 
   app.get("/success", function (req, res) {
     res.send("Success!");
