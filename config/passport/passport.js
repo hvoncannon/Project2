@@ -43,7 +43,7 @@ module.exports = function (passport, user) {
             password: hashPass
           };
 
-          User.create(data).then(function (newUser, created) {
+          User.create(data).then(function (newUser) {
             if (!newUser) {
               return done(null, false);
             }
@@ -66,7 +66,6 @@ module.exports = function (passport, user) {
 
     function (req, username, password, done) {
       var User = user;
-      console.log(req.body);
       var isValidPassword = function (userpass, password) {
         return bCrypt.compareSync(password, userpass);
       };

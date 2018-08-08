@@ -10,11 +10,13 @@ module.exports = function (app, passport) {
   });
 
   app.post("/signup", passport.authenticate("local-signup", {
-    successRedirect: "/success",
-    failureRedirect: "/failure"
+    successRedirect: "/",
+    failureRedirect: "/author",
+    failureFlash: true
   }, console.log("test")));
 
   app.post("/signin", passport.authenticate("local-signin", {
+    successRedirect: "/",
     failureRedirect: "/author",
     failureFlash: true
   }

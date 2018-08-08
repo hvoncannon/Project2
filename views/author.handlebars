@@ -14,16 +14,16 @@
         <div id="postContainer" class="container">
           <div class="row">
             <div class="col-12">
-              <form class="clearfix mb-4" action="POST">
+              <form class="clearfix mb-4" action="/signup" method="POST">
 
                 <div class="form-group">
                   <label for="username"></label>
-                  <input type="text" id="username" class="form-control" aria-describedby="username" placeholder="username">
+                  <input type="text" name="username" id="username" class="form-control" aria-describedby="username" placeholder="username">
                 </div>
 
                 <div class="form-group">
                   <label for="password"></label>
-                  <input type="text" id="password" class="form-control" aria-describedby="password" placeholder="password">
+                  <input type="text" name="password" id="password" class="form-control" aria-describedby="password" placeholder="password">
                 </div>
 
                 <div class="row">
@@ -66,7 +66,7 @@
                     </fieldset>
                   </div>
                 </div>
-{{message}}test
+{{message}}
                 <button id="submitLogin" type="submit" class="btn btn-primary float-right">Submit</button>
               </form>
               <a href="/logout">Logout</a>
@@ -95,29 +95,5 @@
 
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=pdc36rqic3ufhdd3tpjwu40dx8wizyfz5kuc4mom7dei2x3s"></script>
 <script>
-
-  $("#buttonBold").on("click", function () {
-    // ADD FUNCTION FOR BOLD
-  })
-
-  $("#submit").on("click", function (event) {
-    event.preventDefault();
-    var newUser = {
-      username: $("#username").val(),
-      password: $("#password").val().trim(),
-    };
-
-    // Send the POST request.
-    $.ajax("/signup", {
-      type: "POST",
-      data: newUser
-    }).then(function (res) {
-      console.log(test);
-      console.log(newUser);
-    }
-    );
-  });
-
-
 
 </script>
