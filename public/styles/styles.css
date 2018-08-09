@@ -549,3 +549,18 @@ fieldset {
 label[for=categoryName] {
   margin-top: 10px;
 }
+
+/* Hide Password Buttons */
+
+#checkbox {
+  display: inline-block;
+  margin-top: 5px;
+  outline: none;
+  border: none;
+}
+
+#checkbox1 {
+  margin-left: 15px;
+  display: inline-block;
+}
+

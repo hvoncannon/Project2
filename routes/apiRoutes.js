@@ -10,6 +10,8 @@ module.exports = function(app) {
       upvotes: 0,
       downvotes: 0,
       UserId: req.user.id
+    }).then(function(dbPost){
+      res.json(dbPost);
     });
   });
 
@@ -17,9 +19,10 @@ module.exports = function(app) {
     db.Categories.findOrCreate({
       where: { name: req.body.categoryName },
       defaults: {name: req.body.categoryName, description: req.body.categoryDescription}
-    }).then(function(result) {
-      isNew = result[1];
-      console.log(isNew);
+    }).then(function(dbCategories) {
+      res.json(dbCategories);
+      // isNew = result[1];
+      // console.log(isNew);
       //if isNew is false, the category already exists
     });
   });
@@ -31,6 +34,8 @@ module.exports = function(app) {
         text: req.body.text,
         UserId: req.user.id,
         PostId: req.body.id
+      }).then(function(dbComment) {
+        res.json(dbComment);
       });
     }
   });
