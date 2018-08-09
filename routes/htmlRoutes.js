@@ -73,19 +73,6 @@ module.exports = function (app) {
       }),console.log("!!!!!!!!!" + req.flash("error"));
     }
   });
-  
-  app.get("/category", function (req, res) {
-    if (req.isAuthenticated()) {
-      res.render("category", {
-        username: req.user.username,
-        msg: "Category Creation"
-      });
-    } else {
-      res.render("category", {
-        msg: "Category Creation"
-      });
-    }
-  });
 
   app.get("/:categoryName", function(req, res) {
     var categoryPosts = [];
@@ -125,16 +112,6 @@ module.exports = function (app) {
         ]
       }
     ).then(function(dbPost) {
-      if (req.isAuthenticated()) {
-        res.render("detail", {
-          data: dbPost.dataValues,
-          username: req.user.username
-        });
-      } else {
-        res.render("detail", {
-          data: dbPost.dataValues
-        });
-      }
       var comments = dbPost.dataValues.Comments;
       var commentsToPass = [];
       for(var i = 0; i < comments.length; i++) {
@@ -144,8 +121,11 @@ module.exports = function (app) {
         };
         commentsToPass.push(commentObj);
       }
-      console.log(commentsToPass);
-      res.render("detail", {data: dbPost.dataValues, comment: commentsToPass});
+      if (req.isAuthenticated()) {
+        res.render("detail", {data: dbPost.dataValues, comment: commentsToPass, username: req.user.username});
+      } else {
+        res.render("detail", {data: dbPost.dataValues, comment: commentsToPass});
+      }
     });
   });
 
