@@ -12,6 +12,10 @@ module.exports = function (app) {
           {
             model: db.User,
             attributes: ["username"]
+          },
+          {
+            model: db.Categories,
+            attributes: ["name"]
           }
         ]
       }).then(function (dbPost) {

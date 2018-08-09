@@ -33,12 +33,12 @@
                     <!--Heading: Title / date posted-->
                     <span class="userPostHeading">
                         <h3 class="userPostTitle" value={{this.id}}>{{this.title}}</h3> -
-                        <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.category}}</h4>
+                        <h4 class="userPostTimeStamp">{{this.createdAt}} - #{{this.Category.dataValues.name}}</h4>
                     </span>
                     <hr id="postLineBreak">
 
                     <!--Post body containing text and/or images-->
-                    <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
+                    <a class="userPostPreview" href="/category/{{this.id}}" target="_blank">
                         <div class="userPostTextBody">
                             <p id="postPreview">
                                 {{this.content}}
