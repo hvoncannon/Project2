@@ -3,11 +3,14 @@
 
 body {
   background: linear-gradient(#343434, #121212);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-position: center center;
   height: 100%;
   color: white;
   font-family: "Segoe Script";
+}
+#logoutButton {
+  margin-right: 40px;
 }
 #emptySpace {
   height: 100px;
@@ -125,7 +128,7 @@ body {
 }
 
 .navlink {
-  margin-right: 40px;
+  margin-right: 5px;
   font-family: 'Raleway', sans-serif;
   color: white;
   display: inline-block;
@@ -307,8 +310,18 @@ p {
     background-color: #cbcbcb
 }
 
+
+
 #postPreview {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-height: 1;        /* fallback */
+  max-height: 2;       /* fallback */
 }
 
 .userPostCommentsPreview {
