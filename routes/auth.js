@@ -4,7 +4,7 @@ module.exports = function (app, passport) {
   app.get("/signup", authController.signup);
   app.get("/logout", function (req, res) {
     req.session.destroy(function (err) {
-      res.redirect("/");
+      // res.redirect("/");
       console.log("test");
     });
   });
