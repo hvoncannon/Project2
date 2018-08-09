@@ -34,6 +34,8 @@ module.exports = function(app) {
         text: req.body.text,
         UserId: req.user.id,
         PostId: req.body.id
+      }).then(function(dbComment) {
+        res.json(dbComment);
       });
     }
   });
