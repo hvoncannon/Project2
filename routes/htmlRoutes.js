@@ -84,6 +84,7 @@ module.exports = function (app) {
     var categoryPosts = [];
     db.Categories.findAll(
       {
+        order: [["id", "DESC"]],
         where: {name: req.params.categoryName},
         include: [db.Post]
       }
