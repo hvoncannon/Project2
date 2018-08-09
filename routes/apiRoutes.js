@@ -33,6 +33,15 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/new/comment", function(req, res) {
+    if(req.isAuthenticated()) {
+      db.Comment.create({
+        text: req.body.text,
+        UserId: req.user.id
+      });
+    }
+  });
+
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {

@@ -45,7 +45,14 @@
             <hr id="postLineBreak">
 
             <h4 class="userPostCommentsPreview">{{data.commentsAmount}}</h4>
-
+            <div class="commentBox">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" id="comment" rows="3"></textarea>
+                    </div>
+                    <button class="btn addBtn">Add Comment</button>
+                </form>
+            </div>
             <div class="userPostsComments">
                 <div class="row">
                     <div class="col-md-3">
@@ -59,3 +66,4 @@
         </div>
     </div>
 </div>
+<script src="/js/comment.js"></script>

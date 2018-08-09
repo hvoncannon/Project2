@@ -73,20 +73,20 @@ module.exports = function (app) {
     res.render("category");
   });
 
-  app.get("/:categoryName", function(req, res) {
-    var categoryPosts = [];
-    db.Categories.findAll(
-      {
-        where: {name: req.params.categoryName},
-        include: [db.Post]
-      }
-    ).then(function(dbPosts) {
-      for(var i = 0; i < dbPosts[0].dataValues.Posts.length; i++){
-        categoryPosts.push(dbPosts[0].dataValues.Posts[i].dataValues);
-      }
-      res.render("index", {posts: categoryPosts});
-    });
-  });
+  // app.get("/:categoryName", function(req, res) {
+  //   var categoryPosts = [];
+  //   db.Categories.findAll(
+  //     {
+  //       where: {name: req.params.categoryName},
+  //       include: [db.Post]
+  //     }
+  //   ).then(function(dbPosts) {
+  //     for(var i = 0; i < dbPosts[0].dataValues.Posts.length; i++){
+  //       categoryPosts.push(dbPosts[0].dataValues.Posts[i].dataValues);
+  //     }
+  //     res.render("index", {posts: categoryPosts});
+  //   });
+  // });
 
   app.get("/:id", function (req, res) {
     db.Post.findOne(
