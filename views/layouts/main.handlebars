@@ -65,10 +65,14 @@
                 </a>
 
                 <div id="searchWrapper">
-                    <input type="text" placeholder="Search" id="searchBar">
-                    <button id="searchButton">
-                        <i class="fas fa-search"></i>
-                    </button>
+                    <div class="form-group" aria-labelledby="buttonCategory">
+                        <label for="categorydropdown">Select a Category:</label>
+                        <select class="form-control" id="categoryDropdown">
+                            {{#each categoryList}}
+                            <option class="form-control" value={{name}}>{{name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
                 </div>
             </span>
         </div>

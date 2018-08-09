@@ -1,9 +1,12 @@
 $("#submitCat").on("click", function(event) {
   event.preventDefault();
   console.log("!!!!!!!!!Test");
+  console.log($("#categoryName").val());
+  var categoryName = $("#categoryName").val().trim();
+  var categoryDescription = $("#categoryDescription").val().trim();
   var newCategory = {
-    categoryName: $("#categoryName").val().trim(),
-    categoryDescription: $("#categoryDescription").val().trim(),
+    categoryName: categoryName,
+    categoryDescription: categoryDescription,
   };
     // Send the POST request.
   $.ajax("/new/category", {
