@@ -3,6 +3,7 @@ var db = require("../models");
 module.exports = function (app) {
   app.get("/", function(req, res) {
     var postsArr = [];
+    var categoryNames = [];
     db.Post.findAll(
       {
         order: [["id", "DESC"]],
@@ -22,18 +23,25 @@ module.exports = function (app) {
       for(var i = 0; i < dbPost.length; i++) {
         postsArr.push(dbPost[i].dataValues);
       }
-      console.log(postsArr);
-      // IF user is logged in, display both the posts and username on the index page, ELSE only display posts
-      if (req.isAuthenticated()) {
-        res.render("index", {
-          posts: postsArr,
-          username: req.user.username
-        });
-      } else {
-        res.render("index", {
-          posts: postsArr
-        });
-      }
+      db.Categories.findAll({}).then(function (dbCategories) {
+        for(var i = 0; i < dbCategories.length; i++) {
+          categoryNames.push({name: dbCategories[i].dataValues.name});
+        }
+        console.log(categoryNames);
+        // IF user is logged in, display both the posts and username on the index page, ELSE only display posts
+        if (req.isAuthenticated()) {
+          res.render("index", {
+            posts: postsArr,
+            username: req.user.username,
+            categories: categoryNames
+          });
+        } else {
+          res.render("index", {
+            posts: postsArr,
+            categories: categoryNames
+          });
+        }
+      });
     });
   });
   // Load Post Page
