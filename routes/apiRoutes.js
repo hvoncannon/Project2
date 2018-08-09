@@ -37,7 +37,8 @@ module.exports = function(app) {
     if(req.isAuthenticated()) {
       db.Comment.create({
         text: req.body.text,
-        UserId: req.user.id
+        UserId: req.user.id,
+        PostId: 4
       });
     }
   });

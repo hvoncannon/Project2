@@ -96,11 +96,23 @@ module.exports = function (app) {
           {
             model: db.User,
             attributes: ["username"]
+          },
+          {
+            model: db.Comment,
+            attributes: ["text"],
+            include: [
+              {
+                model: db.User,
+                attributes: ["username"]
+              }
+            ]
           }
         ]
       }
     ).then(function(dbPost) {
-      res.render("detail", {data: dbPost.dataValues});
+      var comments = dbPost.dataValues.Comments;
+      console.log(comments);
+      res.render("detail", {data: dbPost.dataValues, comment: comments.dataValues});
     });
     
   });
