@@ -28,17 +28,23 @@ module.exports = function(app) {
   });
 
   app.post("/new/category", function(req, res) {
-    db.Categories.create({
-      name: req.body.categoryName
+    db.Categories.findOrCreate({
+      where: { name: req.body.categoryName },
+      defaults: {name: req.body.categoryName, description: req.body.categoryDescription}
+    }).then(function(result) {
+      isNew = result[1];
+      console.log(isNew);
+      //if isNew is false, the category already exists
     });
   });
 
   app.post("/new/comment", function(req, res) {
+    console.log(req.params);
     if(req.isAuthenticated()) {
       db.Comment.create({
         text: req.body.text,
         UserId: req.user.id,
-        PostId: 4
+        PostId: req.body.id
       });
     }
   });

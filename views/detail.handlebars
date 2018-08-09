@@ -50,17 +50,19 @@
                     <div class="form-group">
                         <textarea class="form-control" id="comment" rows="3"></textarea>
                     </div>
-                    <button class="btn addBtn">Add Comment</button>
+                    <button class="btn addBtn" data-value={{{data.id}}}>Add Comment</button>
                 </form>
             </div>
             <div class="userPostsComments">
                 <div class="row">
+                    {{#each comment}}
                     <div class="col-md-3">
-                        <h5 class="userPostsCommentsName">{{data.comment.name}}</h5>
+                        <h5 class="userPostsCommentsName">{{this.username}}</h5>
                     </div>
                     <div class="col-md-9">
-                        <p class="userPostsCommentsText">{{data.comment.text}}</p>
+                        <p class="userPostsCommentsText">{{this.comment}}</p>
                     </div>
+                    {{/each}}
                 </div>
             </div>
         </div>

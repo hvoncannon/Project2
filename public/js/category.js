@@ -3,7 +3,7 @@ $("#submitCat").on("click", function(event) {
   console.log("Test");
   var newCategory = {
     categoryName: $("#categoryName").val().trim(),
-    // categoryRules: $("#categoryRules").val().trim(),
+    categoryDescription: $("#categoryDescription").val().trim(),
   };
     // Send the POST request.
   $.ajax("/new/category", {

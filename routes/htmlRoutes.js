@@ -59,13 +59,15 @@ module.exports = function (app) {
       res.render("author", {
         title: "Post.it",
         msg: "Author Creation",
-        username: req.user.username
-      });
+        username: req.user.username,
+        message: req.flash("loginFail")
+      }),console.log("!!!!!!!!!" + req.flash("loginFail"));
     } else {
       res.render("author", {
         title: "Post.it",
         msg: "Author Creation",
-      });
+        message: req.flash("error")
+      }),console.log("!!!!!!!!!" + req.flash("error"));
     }
   });
   
@@ -73,22 +75,22 @@ module.exports = function (app) {
     res.render("category");
   });
 
-  // app.get("/:categoryName", function(req, res) {
-  //   var categoryPosts = [];
-  //   db.Categories.findAll(
-  //     {
-  //       where: {name: req.params.categoryName},
-  //       include: [db.Post]
-  //     }
-  //   ).then(function(dbPosts) {
-  //     for(var i = 0; i < dbPosts[0].dataValues.Posts.length; i++){
-  //       categoryPosts.push(dbPosts[0].dataValues.Posts[i].dataValues);
-  //     }
-  //     res.render("index", {posts: categoryPosts});
-  //   });
-  // });
+  app.get("/:categoryName", function(req, res) {
+    var categoryPosts = [];
+    db.Categories.findAll(
+      {
+        where: {name: req.params.categoryName},
+        include: [db.Post]
+      }
+    ).then(function(dbPosts) {
+      for(var i = 0; i < dbPosts[0].dataValues.Posts.length; i++){
+        categoryPosts.push(dbPosts[0].dataValues.Posts[i].dataValues);
+      }
+      res.render("index", {posts: categoryPosts});
+    });
+  });
 
-  app.get("/:id", function (req, res) {
+  app.get("/category/:id", function (req, res) {
     db.Post.findOne(
       {
         where: {id: req.params.id},
@@ -111,10 +113,17 @@ module.exports = function (app) {
       }
     ).then(function(dbPost) {
       var comments = dbPost.dataValues.Comments;
-      console.log(comments);
-      res.render("detail", {data: dbPost.dataValues, comment: comments.dataValues});
+      var commentsToPass = [];
+      for(var i = 0; i < comments.length; i++) {
+        var commentObj = {
+          username: comments[i].dataValues.User.dataValues.username,
+          comment: comments[i].dataValues.text
+        };
+        commentsToPass.push(commentObj);
+      }
+      console.log(commentsToPass);
+      res.render("detail", {data: dbPost.dataValues, comment: commentsToPass});
     });
-    
   });
 
   app.get("/success", function (req, res) {
@@ -125,4 +134,3 @@ module.exports = function (app) {
     res.send("failure");
   });
 };
-
