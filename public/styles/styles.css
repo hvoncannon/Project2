@@ -3,11 +3,14 @@
 
 body {
   background: linear-gradient(#343434, #121212);
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  background-position: center center;
   height: 100%;
   color: white;
   font-family: "Segoe Script";
+}
+#logoutButton {
+  margin-right: 40px;
 }
 #emptySpace {
   height: 100px;
@@ -125,7 +128,7 @@ body {
 }
 
 .navlink {
-  margin-right: 40px;
+  margin-right: 5px;
   font-family: 'Raleway', sans-serif;
   color: white;
   display: inline-block;
