@@ -9,5 +9,7 @@ $(".addBtn").on("click", function(e){
   $.ajax("/new/comment", {
     method: "POST",
     data: textToPass,
+  }).then(function() {
+    window.location.reload();
   });
 });
