@@ -43,7 +43,7 @@ module.exports = function (passport, user) {
             password: hashPass
           };
 
-          User.create(data).then(function (newUser, created) {
+          User.create(data).then(function (newUser) {
             if (!newUser) {
               return done(null, false);
             }
@@ -66,7 +66,6 @@ module.exports = function (passport, user) {
 
     function (req, username, password, done) {
       var User = user;
-
       var isValidPassword = function (userpass, password) {
         return bCrypt.compareSync(password, userpass);
       };
@@ -79,12 +78,12 @@ module.exports = function (passport, user) {
         }
 
         if (!isValidPassword(user.password, password)) {
-          return done(null, false, {
-            message: "Incorrect password"
-          });
+          return done(null, false, { message: "Incorrect Password." }); 
+          
         }
 
         var userinfo = user.get();
+        console.log("sucessssssssssssss");
         return done(null, userinfo);
       }).catch(function (err) {
         console.log(err);

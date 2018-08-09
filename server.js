@@ -7,14 +7,13 @@ var db = require("./models");
 var session = require("express-session");
 var app = express();
 var flash = require("connect-flash");
-var cookieParser = ("cookie-parser");
+var cookieParser = require("cookie-parser");
 var PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-
 //passport
 app.use(session({
   secret: 'haydenSecret',
@@ -22,7 +21,9 @@ app.use(session({
   saveUninitialized: false
 }));
 app.use(passport.initialize());
+app.use(cookieParser());
 app.use(passport.session());
+app.use(flash());
 //load passport strategy
 require("./config/passport/passport")(passport, db.User);
 
