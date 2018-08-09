@@ -3,7 +3,9 @@ var authController = require("../controllers/authcontroller");
 module.exports = function (app, passport) {
   app.get("/signup", authController.signup);
   app.get("/logout", function (req, res) {
+    console.log("test");
     req.session.destroy(function (err) {
+      if (err) throw err;
       res.redirect("/");
       console.log("test");
     });
