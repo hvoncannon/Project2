@@ -67,14 +67,14 @@ module.exports = function (app) {
     res.render("category");
   });
 
-  // app.get("/:id", function (req, res) {
-  //   db.Post.findOne({
-  //     where: {id: req.params.id}
-  //   }).then(function(dbPost) {
-  //     res.render("detail", {data: dbPost.dataValues});
-  //   });
+  app.get("/:id", function (req, res) {
+    db.Post.findOne({
+      where: {id: req.params.id}
+    }).then(function(dbPost) {
+      res.render("detail", {data: dbPost.dataValues});
+    });
     
-  // });
+  });
 
 
 
