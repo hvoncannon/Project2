@@ -3,16 +3,30 @@ var db = require("../models");
 module.exports = function (app) {
   app.get("/", function(req, res) {
     var postsArr = [];
-    db.Post.findAll({}).then(function (dbPost) {
+    db.Post.findAll(
+      {
+        order: [["id", "DESC"]],
+        // This include joins based off of the user id and only selects the column 'username'
+        // so that the server doesn't have to access the password and such
+        include: [
+          {
+            model: db.User,
+            attributes: ["username"]
+          },
+          {
+            model: db.Categories,
+            attributes: ["name"]
+          }
+        ]
+      }).then(function (dbPost) {
       for(var i = 0; i < dbPost.length; i++) {
-        console.log(dbPost[i].dataValues.UserId);
         postsArr.push(dbPost[i].dataValues);
       }
       // IF user is logged in, display both the posts and username on the index page, ELSE only display posts
       if (req.isAuthenticated()) {
         res.render("index", {
           posts: postsArr,
-          username: req.user.username,
+          username: req.user.username
         });
       } else {
         res.render("index", {
@@ -37,9 +51,8 @@ module.exports = function (app) {
           username: req.user.username,
           categories: cats
         });
-        console.log(req.user.id);
       } else {
-        res.send("You need to be logged in to make a post!");
+        res.sendfile("loginError.html", {root: "HTML/"});
       }
     });
     //checks if the user is logged in and renders the form if they are
@@ -49,35 +62,85 @@ module.exports = function (app) {
   app.get("/author", function (req, res) {
     if (req.isAuthenticated()) {
       res.render("author", {
-        title: "Post.it",
         msg: "Author Creation",
         username: req.user.username,
         message: req.flash("loginFail")
       }),console.log("!!!!!!!!!" + req.flash("loginFail"));
     } else {
       res.render("author", {
-        title: "Post.it",
         msg: "Author Creation",
         message: req.flash("error")
       }),console.log("!!!!!!!!!" + req.flash("error"));
     }
   });
-  
+
   app.get("/category", function (req, res) {
-    res.render("category");
+    if (req.isAuthenticated()) {
+      res.render("category", {
+        username: req.user.username,
+        msg: "Category Creation"
+      });
+    } else {
+      res.render("category", {
+        msg: "Category Creation"
+      });
+    }
   });
-
-  app.get("/:id", function (req, res) {
-    db.Post.findOne({
-      where: {id: req.params.id}
-    }).then(function(dbPost) {
-      res.render("detail", {data: dbPost.dataValues});
+  
+  app.get("/:categoryName", function(req, res) {
+    var categoryPosts = [];
+    db.Categories.findAll(
+      {
+        order: [["id", "DESC"]],
+        where: {name: req.params.categoryName},
+        include: [db.Post]
+      }
+    ).then(function(dbPosts) {
+      for(var i = 0; i < dbPosts[0].dataValues.Posts.length; i++){
+        categoryPosts.push(dbPosts[0].dataValues.Posts[i].dataValues);
+      }
+      res.render("index", {posts: categoryPosts});
     });
-    
   });
 
-
-
+  app.get("/:category/:id", function (req, res) {
+    db.Post.findOne(
+      {
+        where: {id: req.params.id},
+        include: [
+          {
+            model: db.User,
+            attributes: ["username"]
+          },
+          {
+            model: db.Comment,
+            attributes: ["text"],
+            include: [
+              {
+                model: db.User,
+                attributes: ["username"]
+              }
+            ]
+          }
+        ]
+      }
+    ).then(function(dbPost) {
+      var comments = dbPost.dataValues.Comments;
+      var commentsToPass = [];
+      for(var i = 0; i < comments.length; i++) {
+        var commentObj = {
+          username: comments[i].dataValues.User.dataValues.username,
+          comment: comments[i].dataValues.text
+        };
+        commentsToPass.push(commentObj);
+      }
+      if (req.isAuthenticated()) {
+        res.render("detail", {data: dbPost.dataValues, comment: commentsToPass, username: req.user.username});
+      } else {
+        res.render("detail", {data: dbPost.dataValues, comment: commentsToPass});
+      }
+    });
+  });
 
   app.get("/success", function (req, res) {
     res.send("Success!");
@@ -87,4 +150,3 @@ module.exports = function (app) {
     res.send("failure");
   });
 };
-

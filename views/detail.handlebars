@@ -6,7 +6,7 @@
             <img class="userPostImage" src="/images/userPlaceholder.jpg">
         </div>
         <div class="row justify-content-center">
-            <h6 class="userPostName">{{data.UserId}}</h6>
+            <h6 class="userPostName">{{data.User.dataValues.username}}</h6>
         </div>
         <div class="row justify-content-center">
             <span>
@@ -22,7 +22,7 @@
     </div>
 
     <!--Author's post-->
-    <div class="col-md-6">
+    <div class="col-md-9">
         <div class="userPostBody">
 
             <!--Heading: Title / date posted-->
@@ -45,17 +45,27 @@
             <hr id="postLineBreak">
 
             <h4 class="userPostCommentsPreview">{{data.commentsAmount}}</h4>
-
+            <div class="commentBox">
+                <form>
+                    <div class="form-group">
+                        <textarea class="form-control" id="comment" rows="3"></textarea>
+                    </div>
+                    <button class="btn addBtn" data-value={{{data.id}}}>Add Comment</button>
+                </form>
+            </div>
             <div class="userPostsComments">
                 <div class="row">
+                    {{#each comment}}
                     <div class="col-md-3">
-                        <h5 class="userPostsCommentsName">{{data.comment.name}}</h5>
+                        <h5 class="userPostsCommentsName">{{this.username}}</h5>
                     </div>
                     <div class="col-md-9">
-                        <p class="userPostsCommentsText">{{data.comment.text}}</p>
+                        <p class="userPostsCommentsText">{{this.comment}}</p>
                     </div>
+                    {{/each}}
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="/js/comment.js"></script>
