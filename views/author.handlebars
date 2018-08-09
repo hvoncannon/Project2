@@ -1,15 +1,15 @@
 {{!-- USER SUBMITS A NEW POST --}}
 <div id="createPost">
   <div class="container">
-  
-    <div class="row"> 
+
+    <div class="row">
       <div class="col-md-3">
         <div class="row justify-content-center">
-            <h4 class="segoeFont"> {{msg}} </h4>
+          <h4 class="segoeFont"> {{msg}} </h4>
         </div>
       </div>
 
-      <div class="col-md-9" >
+      <div class="col-md-9">
         <div id="postContainer" class="container">
           <div class="row">
             <div class="col-12">
@@ -24,10 +24,14 @@
 
                 <div class="form-group">
                   <label for="password"></label>
-                  <input type="text" name="password" id="password" class="form-control" aria-describedby="password" placeholder="Create a password">
+                  <input type="password" name="password" id="password" class="form-control" aria-describedby="password" placeholder="Create a password">
                 </div>
 
-                <button id="submit" type="submit" class="btn btn-danger float-right">Sign-Up</button>
+                <span>
+                  <input type="checkbox" id="checkbox" onclick="hidePassword1()" class="float-left">
+                  <p id="checkbox1">Show Password</p>
+                  <button id="submit" type="submit" class="btn btn-danger float-right">Sign-Up</button>
+                </span>
               </form>
 
               <form class="clearfix mb-4" action="/signin" method="post">
@@ -41,10 +45,14 @@
 
                 <div class="form-group">
                   <label for="password"></label>
-                  <input type="text" name="password" id="passwordLogin" class="form-control" aria-describedby="password" placeholder="Password">
+                  <input type="password" name="password" id="passwordLogin" class="form-control" aria-describedby="password" placeholder="Password">
                 </div>
-                    {{message}}
-                <button id="submitLogin" type="submit" class="btn btn-danger float-right">Log-In</button>
+                {{message}}
+                <span>
+                  <input type="checkbox" id="checkbox" onclick="hidePassword2()" class="float-left">
+                  <p id="checkbox1">Show others your secrets ( ͡° ͜ʖ ͡°)</p>
+                  <button id="submitLogin" type="submit" class="btn btn-danger float-right">Log-In</button>
+                </span>
               </form>
             </div>
           </div>
