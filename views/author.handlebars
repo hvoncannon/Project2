@@ -27,13 +27,13 @@
                   <input type="text" name="password" id="password" class="form-control" aria-describedby="password" placeholder="Create a password">
                 </div>
 
-                <button id="submit" type="submit" class="btn btn-danger float-right">Submit</button>
+                <button id="submit" type="submit" class="btn btn-danger float-right">Sign-Up</button>
               </form>
 
               <form class="clearfix mb-4" action="/signin" method="post">
 
                 <div class="form-group">
-                  <label for="username">
+                  <label for="newUser">
                     <h4 class="segoeFont">Existing User Log-in</h4>
                   </label>
                   <input type="text" name="username" id="usernameLogin" class="form-control" aria-describedby="username" placeholder="Username">
@@ -43,9 +43,8 @@
                   <label for="password"></label>
                   <input type="text" name="password" id="passwordLogin" class="form-control" aria-describedby="password" placeholder="Password">
                 </div>
-                {{message}}
-                <button id="submitLogin" type="submit" class="btn btn-danger float-right">Submit</button>
-              <a href="/logout">logout</a>
+                    {{message}}
+                <button id="submitLogin" type="submit" class="btn btn-danger float-right">Log-In</button>
               </form>
             </div>
           </div>

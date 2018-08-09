@@ -541,3 +541,8 @@ fieldset {
   position: relative;
   top: 150px;
 }
+
+/* category.handlebars */
+label[for=categoryName] {
+  margin-top: 10px;
+}
