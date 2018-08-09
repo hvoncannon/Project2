@@ -5,6 +5,7 @@ module.exports = function (app) {
     var postsArr = [];
     db.Post.findAll(
       {
+        order: [["id", "DESC"]],
         // This include joins based off of the user id and only selects the column 'username'
         // so that the server doesn't have to access the password and such
         include: [
