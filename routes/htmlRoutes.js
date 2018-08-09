@@ -22,6 +22,7 @@ module.exports = function (app) {
       for(var i = 0; i < dbPost.length; i++) {
         postsArr.push(dbPost[i].dataValues);
       }
+      console.log(postsArr);
       // IF user is logged in, display both the posts and username on the index page, ELSE only display posts
       if (req.isAuthenticated()) {
         res.render("index", {
