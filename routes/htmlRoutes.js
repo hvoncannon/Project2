@@ -26,7 +26,7 @@ module.exports = function (app) {
       if (req.isAuthenticated()) {
         res.render("index", {
           posts: postsArr,
-          username: req.user.username,
+          username: req.user.username
         });
       } else {
         res.render("index", {
@@ -52,7 +52,7 @@ module.exports = function (app) {
           categories: cats
         });
       } else {
-        res.send("You need to be logged in to make a post!");
+        res.sendfile("loginError.html", {root: "HTML/"});
       }
     });
     //checks if the user is logged in and renders the form if they are
@@ -62,14 +62,12 @@ module.exports = function (app) {
   app.get("/author", function (req, res) {
     if (req.isAuthenticated()) {
       res.render("author", {
-        title: "Post.it",
         msg: "Author Creation",
         username: req.user.username,
         message: req.flash("loginFail")
       }),console.log("!!!!!!!!!" + req.flash("loginFail"));
     } else {
       res.render("author", {
-        title: "Post.it",
         msg: "Author Creation",
         message: req.flash("error")
       }),console.log("!!!!!!!!!" + req.flash("error"));
@@ -77,7 +75,16 @@ module.exports = function (app) {
   });
   
   app.get("/category", function (req, res) {
-    res.render("category");
+    if (req.isAuthenticated()) {
+      res.render("category", {
+        username: req.user.username,
+        msg: "Category Creation"
+      });
+    } else {
+      res.render("category", {
+        msg: "Category Creation"
+      });
+    }
   });
 
   app.get("/:categoryName", function(req, res) {
@@ -118,6 +125,16 @@ module.exports = function (app) {
         ]
       }
     ).then(function(dbPost) {
+      if (req.isAuthenticated()) {
+        res.render("detail", {
+          data: dbPost.dataValues,
+          username: req.user.username
+        });
+      } else {
+        res.render("detail", {
+          data: dbPost.dataValues
+        });
+      }
       var comments = dbPost.dataValues.Comments;
       var commentsToPass = [];
       for(var i = 0; i < comments.length; i++) {
