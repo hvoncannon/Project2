@@ -39,7 +39,7 @@ module.exports = function (app) {
         });
         console.log(req.user.id);
       } else {
-        res.send("You need to be logged in to make a post!");
+        res.sendfile("loginError.html", {root: "HTML/"});
       }
     });
     //checks if the user is logged in and renders the form if they are

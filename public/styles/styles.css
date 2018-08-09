@@ -534,3 +534,10 @@ fieldset {
   margin-left: 5px;
   margin-top: 10px;
 }
+
+/* loginError.html */
+#loginErrorMsg {
+  text-align: center;
+  position: relative;
+  top: 150px;
+}
