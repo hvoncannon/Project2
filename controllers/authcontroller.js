@@ -1,7 +1,7 @@
 var exports = module.exports = {};
 
 exports.signup = function (req, res) {
-  res.render("author");
+  res.render("author", {message: req.flash("error")});
 };
 
 exports.logout = function (req, res) {
