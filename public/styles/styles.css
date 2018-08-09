@@ -307,8 +307,18 @@ p {
     background-color: #cbcbcb
 }
 
+
+
 #postPreview {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-height: 1;        /* fallback */
+  max-height: 2;       /* fallback */
 }
 
 .userPostCommentsPreview {
