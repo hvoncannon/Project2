@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="/images/PostItLogo.png">
   <!--Stylesheets-->
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  {{!-- Bootstrap CDN --}}
+  <!-- Bootstrap CDN -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
 
   <!--Javascript / jQuery-->
@@ -54,11 +54,10 @@
             </span>
             
             <span id="navbuttons">
-              <h5 id="navBarUsername" class="segoeFont">Logged in as <a style="color: red;">: </a> {{username}} <a style="color: red;"></a></h5>
+              <h5 id="navBarUsername" class="segoeFont">Logged in as <a style="color: red;">--></a>  <a style="color: red;"> <-- </a></h5>
 
                 <a class="navlink" href="/">
                     <i class="fas fa-home"></i>
-                    {{logoutButton}}
                 </a>
                 <div id="searchWrapper">
                     <input type="text" placeholder="Search" id="searchBar">
@@ -74,9 +73,11 @@
 <div id="emptySpace"></div>
 
 <div class="row justify-content-center">
-  <div class="col-md-9">
-    {{{body}}}
-  </div>
+    <div class="col-md-9">
+        <div id="loginErrorMsg" class="segoeFont">
+            <h4>You must log-in before you can make a Post!</h4>
+        </div>
+    </div>
     <!--SIDE BAR-->
   <div class="col-md-3">
       <div id="sidebar">
@@ -85,7 +86,7 @@
           <div class="col-md-12">
               <span>
                   <a href="/author">
-                      <button id="createAuthorButton">Sign-Up / Log-In</button>
+                      <button id="createAuthorButton">Create an Author</button>
                   </a>
               </span>
               <span>
@@ -113,6 +114,7 @@
       </div>
   </div>
 </div>
+
   <script src="/js/index.js"></script>
   <script src="/js/post.js"></script>
   <script src="/js/category.js"></script>
