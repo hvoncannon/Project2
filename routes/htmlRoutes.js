@@ -95,7 +95,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get("/category/:id", function (req, res) {
+  app.get("/:category/:id", function (req, res) {
     db.Post.findOne(
       {
         where: {id: req.params.id},
