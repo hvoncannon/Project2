@@ -74,6 +74,19 @@ module.exports = function (app) {
     }
   });
 
+  app.get("/category", function (req, res) {
+    if (req.isAuthenticated()) {
+      res.render("category", {
+        username: req.user.username,
+        msg: "Category Creation"
+      });
+    } else {
+      res.render("category", {
+        msg: "Category Creation"
+      });
+    }
+  });
+  
   app.get("/:categoryName", function(req, res) {
     var categoryPosts = [];
     db.Categories.findAll(
