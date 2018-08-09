@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "postIt",
+    "database": "postitdb",
     "host": "localhost",
     "dialect": "mysql"
   },
