@@ -3,7 +3,7 @@ $("#submitCat").on("click", function(event) {
   console.log("!!!!!!!!!Test");
   console.log($("#categoryName").val());
   var categoryName = $("#categoryName").val().trim();
-  var categoryDescription = $("#category-description").val().trim();
+  var categoryDescription = $("#categoryDescription").val().trim();
   var newCategory = {
     categoryName: categoryName,
     categoryDescription: categoryDescription,
