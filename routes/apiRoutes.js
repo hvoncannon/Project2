@@ -42,12 +42,15 @@ module.exports = function (app) {
 
   app.post("/upvote", function (req, res) {
     if (req.isAuthenticated()) {
+      console.log("!!!!!!");
       db.Post.increment(
         { upvotes: 1 },
         { where: { id: req.body.id } }
       ).then(function (rowsUpdated) {
         res.json(rowsUpdated);
       });
+    } else {
+      res.send("Need to log in");
     }
   });
 
@@ -59,6 +62,8 @@ module.exports = function (app) {
       ).then(function (rowsUpdated) {
         res.json(rowsUpdated);
       });
+    } else {
+      res.send("Need to log in");
     }
   });
 };

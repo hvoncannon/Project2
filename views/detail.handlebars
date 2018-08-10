@@ -3,18 +3,18 @@
     <!--Author image, name, and voting on left side of post-->
     <div class="col-md-3">
         <div class="row justify-content-center">
-            <img class="userPostImage" src="/images/userPlaceholder.jpg">
+            <img class="userPostImage" src={{data.User.dataValues.avatar}}>
         </div>
         <div class="row justify-content-center">
             <h6 class="userPostName">{{data.User.dataValues.username}}</h6>
         </div>
         <div class="row justify-content-center">
             <span>
-                <button class="upvoteButton">
+                <button class="upvoteButton" data-postid="{{data.id}}">
                     <i class="fas fa-chevron-circle-up"></i>
                 </button>
-                <h4 class="voteValue">{{data.upvotes}}</h4>
-                <button class="downvoteButton">
+                <h4 class="voteValue">{{data.votecount}}</h4>
+                <button class="downvoteButton" data-postid="{{data.id}}">
                     <i class="fas fa-chevron-circle-down"></i>
                 </button>
             </span>
@@ -30,7 +30,7 @@
                 <a class="userPostPreview" href="/post/" {{{id}}} target="_blank">
                     <h3 class="userPostTitle" value={{data.id}}>{{data.title}}</h3>
                 </a> -
-                <h4 class="userPostTimeStamp"><span class="momentjs">{{data.createdAt}}</span> - #{{data.CategoryId}}</h4>
+                <h4 class="userPostTimeStamp"><span class="momentjs">{{data.createdAt}}</span> - #{{categoryNameforPost}}</h4>
             </span>
             <hr id="postLineBreak">
 
@@ -69,3 +69,4 @@
     </div>
 </div>
 <script src="/js/comment.js"></script>
+<script src="/js/vote.js"></script>
