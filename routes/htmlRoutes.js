@@ -238,7 +238,7 @@ module.exports = function (app) {
         for(var i = 0; i < dbCategories.length; i++) {
           categoryNames.push(dbCategories[i].dataValues);
         }
-        console.log(categoryNames);
+        console.log(dbPost.dataValues.id);
         // IF user is logged in, display both the posts and username on the index page, ELSE only display posts
         if (req.isAuthenticated()) {
           res.render("detail", {data: dbPost.dataValues, comment: commentsToPass, username: req.user.username, categoryList: categoryNames});

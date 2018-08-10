@@ -10,11 +10,11 @@
         </div>
         <div class="row justify-content-center">
             <span>
-                <button class="upvoteButton">
+                <button class="upvoteButton" data-postid="{{data.id}}">
                     <i class="fas fa-chevron-circle-up"></i>
                 </button>
                 <h4 class="voteValue">{{data.votecount}}</h4>
-                <button class="downvoteButton">
+                <button class="downvoteButton" data-postid="{{data.id}}">
                     <i class="fas fa-chevron-circle-down"></i>
                 </button>
             </span>
@@ -69,3 +69,4 @@
     </div>
 </div>
 <script src="/js/comment.js"></script>
+<script src="/js/vote.js"></script>
