@@ -1,4 +1,5 @@
 var db = require("../models");
+var sequelize = require("sequelize");
 
 module.exports = function (app) {
   app.get("/", function(req, res) {
@@ -7,6 +8,7 @@ module.exports = function (app) {
     db.Post.findAll(
       {
         order: [["id", "DESC"]],
+        attributes: ["id", "title", "content", "createdAt", "CategoryId", "UserId", [sequelize.literal("upvotes - downvotes"), "votecount"]],
         // This include joins based off of the user id and only selects the column 'username'
         // so that the server doesn't have to access the password and such
         include: [
@@ -23,6 +25,7 @@ module.exports = function (app) {
       for(var i = 0; i < dbPost.length; i++) {
         postsArr.push(dbPost[i].dataValues);
       }
+      console.log("!!!!!!!!!!!!!!!" + JSON.stringify(postsArr));
       db.Categories.findAll({}).then(function (dbCategories) {
         for(var i = 0; i < dbCategories.length; i++) {
           categoryNames.push({name: dbCategories[i].dataValues.name});
