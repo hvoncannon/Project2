@@ -3,7 +3,7 @@
     <!--Author image, name, and voting on left side of post-->
     <div class="col-md-3">
         <div class="row justify-content-center">
-            <img class="userPostImage" src="/images/userPlaceholder.jpg">
+            <img class="userPostImage" src={{data.User.dataValues.avatar}}>
         </div>
         <div class="row justify-content-center">
             <h6 class="userPostName">{{data.User.dataValues.username}}</h6>
@@ -13,7 +13,7 @@
                 <button class="upvoteButton">
                     <i class="fas fa-chevron-circle-up"></i>
                 </button>
-                <h4 class="voteValue">{{data.upvotes}}</h4>
+                <h4 class="voteValue">{{data.votecount}}</h4>
                 <button class="downvoteButton">
                     <i class="fas fa-chevron-circle-down"></i>
                 </button>

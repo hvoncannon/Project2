@@ -127,6 +127,7 @@ module.exports = function (app) {
     });
   });
   
+  //leaving in old /categoryName routing method
   // app.get("/:categoryName", function(req, res) {
   //   var categoryPosts = [];
   //   var categoryNames = [];
@@ -204,10 +205,11 @@ module.exports = function (app) {
     db.Post.findOne(
       {
         where: {id: req.params.id},
+        attributes: ["id", "title", "content", "createdAt", "CategoryId", "UserId", [sequelize.literal("Post.upvotes - Post.downvotes"), "votecount"]],
         include: [
           {
             model: db.User,
-            attributes: ["username"]
+            attributes: ["username", "avatar"]
           },
           {
             model: db.Comment,
