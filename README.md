@@ -10,8 +10,8 @@
 
 ### Technology Used:
 * NodeJS
-* 
-* 
+* Sequilize
+* Handlebars
 
 ### Project Description:
 This project will allow user login and users will be able to create posts and assign it a specific category.
