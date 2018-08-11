@@ -154,7 +154,7 @@ module.exports = function (app) {
   //   });
   // });
 
-  app.get("/cat/:id", function(req, res) {
+  app.get("/c/:id", function(req, res) {
     var postsArr = [];
     var categoryNames = [];
     db.Post.findAll(
