@@ -371,6 +371,10 @@ p {
   border-radius: 10px;
 }
 
+.marginFix {
+  margin-top: 10px;
+}
+
 .sidebar {
   border: solid;
 }
@@ -396,10 +400,6 @@ body {
 
 #post-author {
   margin-bottom: -24px;
-}
-
-fieldset {
-  margin-bottom: -20px;
 }
 
 [contentEditable=true]:empty:not(:focus):before {
