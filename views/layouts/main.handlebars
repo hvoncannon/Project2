@@ -62,11 +62,11 @@
                         <i class="fas fa-home"></i>
                     </a>
 
-                    <a class="navlink" id="hotPosts" href="" title="HOT posts">
+                    <a class="navlink" id="hotPosts" href="/hot" title="HOT posts">
                         <i class="fas fa-fire"></i>
                     </a>
 
-                    <a class="navlink" id="newPosts" href="" title="What's New">
+                    <a class="navlink" id="newPosts" href="/" title="What's New">
                         <i class="fas fa-hourglass-start"></i>
                     </a>
 
@@ -83,7 +83,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 {{#each categoryList}}
-                                <a class="dropdown-item" id="categoryChoices" data-catId={{id}} value={{name}} href="/cat/{{id}}">{{name}}</a>
+                                <a class="dropdown-item" id="categoryChoices" data-catId={{id}} value={{name}} href="/c/{{id}}">{{name}}</a>
                                 {{/each}}
                             </div>
                         </div>
