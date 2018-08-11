@@ -25,7 +25,51 @@ module.exports = function (app) {
       for(var i = 0; i < dbPost.length; i++) {
         postsArr.push(dbPost[i].dataValues);
       }
-      console.log("!!!!!!!!!!!!!!!" + JSON.stringify(postsArr));
+      db.Categories.findAll({}).then(function (dbCategories) {
+        for(var i = 0; i < dbCategories.length; i++) {
+          categoryNames.push(dbCategories[i].dataValues);
+        }
+        console.log(categoryNames);
+        // IF user is logged in, display both the posts and username on the index page, ELSE only display posts
+        if (req.isAuthenticated()) {
+          res.render("index", {
+            posts: postsArr,
+            username: req.user.username,
+            categoryList: categoryNames
+          });
+        } else {
+          res.render("index", {
+            posts: postsArr,
+            categoryList: categoryNames
+          });
+        }
+      });
+    });
+  });
+
+  app.get("/hot", function(req, res) {
+    var postsArr = [];
+    var categoryNames = [];
+    db.Post.findAll(
+      {
+        order: [["upvotes", "DESC"]],
+        attributes: ["id", "title", "content", "createdAt", "CategoryId", "UserId", [sequelize.literal("upvotes - downvotes"), "votecount"]],
+        // This include joins based off of the user id and only selects the column 'username'
+        // so that the server doesn't have to access the password and such
+        include: [
+          {
+            model: db.User,
+            attributes: ["username", "avatar"]
+          },
+          {
+            model: db.Categories,
+            attributes: ["name"]
+          }
+        ]
+      }).then(function (dbPost) {
+      for(var i = 0; i < dbPost.length; i++) {
+        postsArr.push(dbPost[i].dataValues);
+      }
       db.Categories.findAll({}).then(function (dbCategories) {
         for(var i = 0; i < dbCategories.length; i++) {
           categoryNames.push(dbCategories[i].dataValues);
@@ -127,33 +171,6 @@ module.exports = function (app) {
     });
   });
   
-  //leaving in old /categoryName routing method
-  // app.get("/:categoryName", function(req, res) {
-  //   var categoryPosts = [];
-  //   var categoryNames = [];
-  //   db.Categories.findAll(
-  //     {
-  //       order: [["id", "DESC"]],
-  //       where: {name: req.params.categoryName},
-  //       include: [db.Post]
-  //     }
-  //   ).then(function(dbPosts) {
-  //     for(var i = 0; i < dbPosts[0].dataValues.Posts.length; i++){
-  //       categoryPosts.push(dbPosts[0].dataValues.Posts[i].dataValues);
-  //     }
-  //     console.log(JSON.stringify(categoryPosts));
-  //     db.Categories.findAll({}).then(function (dbCategories) {
-  //       for(var i = 0; i < dbCategories.length; i++) {
-  //         categoryNames.push({name: dbCategories[i].dataValues.name});
-  //       }
-  //       console.log(categoryNames);
-  //       // IF user is logged in, display both the posts and username on the index page, ELSE only display posts
-  //       res.render("index", {posts: categoryPosts, categoryList: categoryNames});
-  //     });
-      
-  //   });
-  // });
-
   app.get("/c/:id", function(req, res) {
     var postsArr = [];
     var categoryNames = [];
@@ -246,5 +263,9 @@ module.exports = function (app) {
         }
       });
     });
+  });
+
+  app.get("*", function(req, res) {
+    res.redirect("/");
   });
 };
