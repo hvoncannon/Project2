@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "toor54321",
-    "database": "postit",
+    "password": "password",
+    "database": "postitdb",
     "host": "localhost",
     "dialect": "mysql"
   },
