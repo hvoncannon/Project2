@@ -10,8 +10,14 @@
 
 ### Technology Used:
 * NodeJS
-* Sequilize
+* Sequelize
 * Handlebars
+* Express
+* PassPortJS
+* bcrypt
+* Bootstrap
+* Heroku
+* JawsDB
 
 ### Project Description:
 This project will allow user login and users will be able to create posts and assign it a specific category.
@@ -58,6 +64,11 @@ When you create a post, it will show up on the landing page of the website. Alon
 
 ### Future Plans
 * Search functionality
+* Threaded comments chains
+* Voting on comments
+* Password Resets
+* Scraping linked sites for content
+* Editing comments and posts
 
 ### How To Check Out Branches and Push Code
 1. Navigate to our Project Board and find your issue #
