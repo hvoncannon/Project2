@@ -40,7 +40,8 @@ module.exports = function (passport, user) {
           var hashPass = generateHash(req.body.password);
           var data = {
             username: req.body.username,
-            password: hashPass
+            password: hashPass,
+            avatar: req.body.userAvatar
           };
 
           User.create(data).then(function (newUser) {
