@@ -1,3 +1,4 @@
+#https://shielded-brushlands-80704.herokuapp.com/
 # Team Snowstorm
 ## Our Team:
 * Hayden VonCannon
@@ -69,17 +70,3 @@ When you create a post, it will show up on the landing page of the website. Alon
 * Password Resets
 * Scraping linked sites for content
 * Editing comments and posts
-
-### How To Check Out Branches and Push Code
-1. Navigate to our Project Board and find your issue #
-2. Go back to terminal and run a 'git checkout -b PostIt-issueNumGoesHere-quick-description'
-    * Example: 'git checkout -b PostIt-19-update-readme'
-    * ![checkoutBranch](./readmeAssets/1.png)
-3. Make your changes
-4. When you're ready to commit follow these steps:
-    1. Run 'git add .' to add all your changes
-    2. Run 'git commit -m "#issueNumber with description of what you did afterwards"'
-        * This step is important, if you dont add your issue number then github won't recognize the commit and display the commit message on github
-    3. Push your changes 'git push origin branchName'
-    * ![pushBranch](./readmeAssets/2.png)
-5. If you have any questions or are skeptical about something, ask Jonathan :D
